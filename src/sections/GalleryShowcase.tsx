@@ -27,23 +27,28 @@ export default function GalleryShowcase() {
       : galleryItems.filter((item) => item.category === activeFilter)
 
   return (
-    <section className="bg-ivory section-padding">
-      <div className="content-max mx-auto">
-        <div className="mb-12">
-          <h2 className="text-h1 text-text-dark mb-4">Work That Speaks</h2>
-          <div className="gold-line" />
+    <section className="bg-stone py-24 px-4 md:px-8">
+      <div className="content-max mx-auto max-w-5xl">
+        <div className="text-center mb-16">
+          <span className="inline-block text-sm font-bold tracking-widest uppercase text-gold bg-gold/10 px-4 py-2 rounded-full mb-4">
+            Gallery
+          </span>
+          <h2 className="text-5xl font-black text-ink mb-4">Work That Speaks</h2>
+          <p className="text-lg text-text-muted">
+            Discover the packaging projects we've brought to life for leading brands
+          </p>
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap gap-3 mb-10">
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {filters.map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeFilter === filter
-                  ? 'bg-navy text-ivory'
-                  : 'bg-off-white text-text-muted hover:bg-navy/10'
+                  ? 'bg-gold text-ink'
+                  : 'bg-white text-ink hover:bg-gold/10'
               }`}
             >
               {filter}
