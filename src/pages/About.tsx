@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Award, HeartHandshake, Zap, Target } from 'lucide-react'
+import { Award, HeartHandshake, Zap, Target, ArrowRight } from 'lucide-react'
 import { useFadeIn, useStaggerFadeIn } from '../hooks/useScrollAnimation'
 import RFQCTA from '../sections/RFQCTA'
 
@@ -43,15 +43,17 @@ export default function About() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center bg-navy pt-24">
+      <section className="relative min-h-[70vh] flex items-center bg-ink pt-24">
         <div className="content-max mx-auto px-[clamp(20px,5vw,80px)] w-full">
           <div ref={heroRef}>
-            <h1 className="text-display text-ivory mb-6">
-              <span className="block">BUILT IN</span>
-              <span className="block text-gold">MUMBAI</span>
-              <span className="block">FOR INDIA</span>
+            <span className="inline-block text-sm font-bold tracking-widest uppercase text-gold bg-gold/10 px-4 py-2 rounded-full mb-4">
+              About Picasso
+            </span>
+            <h1 className="text-5xl font-black text-white mb-6">
+              Built in Mumbai<br />
+              <span className="text-gold">For India</span>
             </h1>
-            <p className="text-body-lg text-ivory/60 max-w-xl">
+            <p className="text-lg text-white/70 max-w-xl">
               Two decades of packaging excellence. One relentless commitment to quality.
             </p>
           </div>
@@ -59,10 +61,10 @@ export default function About() {
       </section>
 
       {/* Story */}
-      <section className="bg-ivory section-padding">
-        <div className="content-max mx-auto">
+      <section className="bg-stone py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-5xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="image-parallax aspect-[4/3] rounded overflow-hidden">
+            <div className="aspect-[4/3] rounded-lg overflow-hidden">
               <img
                 src="/images/about-factory.jpg"
                 alt="Picasso manufacturing facility"
@@ -70,16 +72,16 @@ export default function About() {
               />
             </div>
             <div>
-              <h2 className="text-h1 text-text-dark mb-6">Our Story</h2>
-              <div className="gold-line mb-6" />
-              <p className="text-body-lg text-text-muted leading-relaxed mb-6">
+              <h2 className="text-4xl font-black text-ink mb-6">Our Story</h2>
+              <div className="h-1 w-16 bg-gold mb-6" />
+              <p className="text-lg text-ink/70 leading-relaxed mb-6">
                 Founded in 2008, Picasso Print & Pack began with a simple belief: Indian brands deserve packaging that rivals the world's best. What started as a small commercial printing unit in Mumbai has evolved into one of India's most trusted packaging partners.
               </p>
-              <p className="text-body-lg text-text-muted leading-relaxed mb-6">
-                Today, we serve 12,000+ clients across 28 cities, manufacturing everything from humble kraft paper bags to luxury rigid boxes for India's most prestigious brands. Our 150,000 sq. ft. facility houses state-of-the-art die-cutting, lamination, and printing lines.
+              <p className="text-lg text-ink/70 leading-relaxed mb-6">
+                Today, we serve 500+ brands across major Indian cities, manufacturing everything from humble kraft paper bags to luxury rigid boxes for India's most prestigious brands. Our state-of-the-art facility houses cutting-edge die-cutting, lamination, and printing lines.
               </p>
-              <p className="text-body-lg text-text-muted leading-relaxed">
-                But our true measure of success isn't square footage or machine count — it's the trust our clients place in us, order after order, year after year.
+              <p className="text-lg text-ink/70 leading-relaxed">
+                But our true measure of success isn't equipment or capacity — it's the trust our clients place in us, order after order, year after year.
               </p>
             </div>
           </div>
@@ -87,11 +89,11 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="bg-navy section-padding">
-        <div className="content-max mx-auto" ref={valuesRef}>
+      <section className="bg-charcoal py-24 px-4 md:px-8" ref={valuesRef}>
+        <div className="content-max mx-auto max-w-5xl">
           <div className="mb-16">
-            <h2 className="text-h1 text-ivory mb-4">What We Stand For</h2>
-            <div className="gold-line" />
+            <h2 className="text-4xl font-black text-white mb-4">What We Stand For</h2>
+            <div className="h-1 w-16 bg-gold" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value) => (
@@ -99,8 +101,8 @@ export default function About() {
                 <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-6">
                   <value.icon className="w-6 h-6 text-gold" />
                 </div>
-                <h3 className="text-h3 text-ivory mb-3">{value.title}</h3>
-                <p className="text-sm text-ivory/60 leading-relaxed">{value.description}</p>
+                <h3 className="text-lg font-bold text-white mb-3">{value.title}</h3>
+                <p className="text-sm text-white/70 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -108,17 +110,17 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="bg-off-white section-padding">
-        <div className="content-max mx-auto" ref={timelineRef}>
+      <section className="bg-stone py-24 px-4 md:px-8" ref={timelineRef}>
+        <div className="content-max mx-auto max-w-5xl">
           <div className="mb-16">
-            <h2 className="text-h1 text-text-dark mb-4">Our Journey</h2>
-            <div className="gold-line" />
+            <h2 className="text-4xl font-black text-ink mb-4">Our Journey</h2>
+            <div className="h-1 w-16 bg-gold" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {milestones.map((m) => (
-              <div key={m.year} className="timeline-item bg-white rounded p-6 card-hover">
-                <span className="text-display-md text-gold/30 block">{m.year}</span>
-                <h3 className="text-h3 text-text-dark -mt-4">{m.event}</h3>
+              <div key={m.year} className="timeline-item bg-white rounded-lg p-6 hover:shadow-elevated transition-all">
+                <span className="text-5xl font-black text-gold/20 block">{m.year}</span>
+                <h3 className="text-lg font-bold text-ink -mt-4">{m.event}</h3>
               </div>
             ))}
           </div>
@@ -126,14 +128,14 @@ export default function About() {
       </section>
 
       {/* Team */}
-      <section className="bg-ivory section-padding">
-        <div className="content-max mx-auto">
+      <section className="bg-stone py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-5xl">
           <div className="mb-16">
-            <h2 className="text-h1 text-text-dark mb-4">Leadership Team</h2>
-            <div className="gold-line" />
+            <h2 className="text-4xl font-black text-ink mb-4">Leadership Team</h2>
+            <div className="h-1 w-16 bg-gold" />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="image-parallax aspect-[3/2] rounded overflow-hidden">
+            <div className="aspect-[3/2] rounded-lg overflow-hidden">
               <img
                 src="/images/about-team.jpg"
                 alt="Picasso leadership team"
@@ -141,14 +143,15 @@ export default function About() {
               />
             </div>
             <div>
-              <p className="text-body-lg text-text-muted leading-relaxed mb-6">
+              <p className="text-lg text-ink/70 leading-relaxed mb-6">
                 Our leadership team brings together decades of experience in packaging engineering, supply chain management, and brand strategy. Each member is driven by a shared mission: to make Indian packaging world-class.
               </p>
-              <p className="text-body-lg text-text-muted leading-relaxed mb-8">
+              <p className="text-lg text-ink/70 leading-relaxed mb-8">
                 From our CEO who started as a press operator to our Head of Design who trained at NID, our team embodies the belief that the best ideas come from diverse perspectives and deep expertise.
               </p>
-              <Link to="/contact" className="btn-outline-gold">
+              <Link to="/contact" className="inline-flex items-center gap-2 bg-gold text-ink font-bold py-3 px-8 rounded-lg hover:bg-gold-light transition-colors">
                 Work With Our Team
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -156,17 +159,17 @@ export default function About() {
       </section>
 
       {/* Certifications */}
-      <section className="bg-navy section-padding">
-        <div className="content-max mx-auto">
-          <div className="mb-12 text-center">
-            <h2 className="text-h1 text-ivory mb-4">Certifications</h2>
-            <div className="gold-line mx-auto" />
+      <section className="bg-charcoal py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-5xl">
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl font-black text-white mb-4">Certifications & Compliance</h2>
+            <div className="h-1 w-16 bg-gold mx-auto" />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {['ISO 9001', 'FSC Certified', 'SEDEX', 'GMP Compliant'].map((cert) => (
-              <div key={cert} className="text-center p-6 border border-ivory/10 rounded">
-                <span className="text-h3 text-gold block mb-2">{cert.split(' ')[0]}</span>
-                <span className="text-sm text-ivory/60">{cert}</span>
+              <div key={cert} className="text-center p-6 border border-white/10 rounded-lg">
+                <span className="text-2xl font-bold text-gold block mb-2">{cert.split(' ')[0]}</span>
+                <span className="text-sm text-white/70">{cert}</span>
               </div>
             ))}
           </div>

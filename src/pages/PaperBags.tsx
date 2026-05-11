@@ -61,19 +61,19 @@ export default function PaperBags() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center bg-navy pt-24">
+      <section className="relative min-h-[60vh] flex items-center bg-ink pt-24">
         <div className="content-max mx-auto px-[clamp(20px,5vw,80px)] w-full">
           <div className="mb-4">
-            <Link to="/" className="text-caption text-ivory/40 hover:text-gold transition-colors">
+            <Link to="/" className="text-sm text-white/40 hover:text-gold transition-colors">
               Home
             </Link>
-            <span className="text-caption text-ivory/40 mx-2">/</span>
-            <Link to="/products/paper-bags" className="text-caption text-gold">
+            <span className="text-sm text-white/40 mx-2">/</span>
+            <Link to="/products/paper-bags" className="text-sm text-gold">
               Paper Bags
             </Link>
           </div>
-          <h1 className="text-display-md text-ivory mb-4">Luxury Paper Bags That Carry Your Brand Beyond the Counter</h1>
-          <p className="text-body-lg text-ivory/60 max-w-2xl">
+          <h1 className="text-5xl font-black text-white mb-4">Luxury Paper Bags That Carry Your Brand Beyond the Counter</h1>
+          <p className="text-lg text-white/70 max-w-2xl">
             Custom printed paper bags for retail, gifting, QSR, fashion, pharma, and D2C brands.
             Choose kraft, art paper, duplex, rope handles, twisted handles, lamination, foil, and more.
             Order from 500 units with fast turnaround.
@@ -82,15 +82,15 @@ export default function PaperBags() {
       </section>
 
       {/* Product Types */}
-      <section className="bg-ivory section-padding">
-        <div className="content-max mx-auto" ref={cardsRef}>
+      <section className="bg-stone py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-5xl" ref={cardsRef}>
           <div className="mb-16">
-            <h2 className="text-h1 text-text-dark mb-4">Paper Bag Types</h2>
-            <div className="gold-line" />
+            <h2 className="text-4xl font-black text-ink mb-4">Paper Bag Types</h2>
+            <div className="h-1 w-16 bg-gold" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {bagTypes.map((bag) => (
-              <div key={bag.title} className="bag-card bg-off-white rounded overflow-hidden card-hover group">
+              <div key={bag.title} className="bag-card bg-white rounded-lg overflow-hidden hover:shadow-elevated transition-all group border border-sand">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={bag.image}
@@ -100,11 +100,11 @@ export default function PaperBags() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-h3 text-text-dark mb-2">{bag.title}</h3>
-                  <p className="text-sm text-text-muted leading-relaxed mb-4">{bag.description}</p>
+                  <h3 className="text-lg font-bold text-ink mb-2">{bag.title}</h3>
+                  <p className="text-sm text-ink/70 leading-relaxed mb-4">{bag.description}</p>
                   <Link
                     to="/contact"
-                    className="text-caption text-gold hover:text-gold-dim inline-flex items-center gap-2"
+                    className="text-sm text-gold font-semibold hover:text-gold-light inline-flex items-center gap-2"
                   >
                     Request Sample
                     <ArrowRight className="w-3 h-3" />
@@ -117,24 +117,24 @@ export default function PaperBags() {
       </section>
 
       {/* Specifications */}
-      <section className="bg-off-white section-padding">
-        <div className="content-max mx-auto">
-          <div className="mb-12">
-            <h2 className="text-h1 text-text-dark mb-4">Technical Specifications</h2>
-            <div className="gold-line" />
+      <section className="bg-stone py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-5xl">
+          <div className="mb-16">
+            <h2 className="text-4xl font-black text-ink mb-4">Technical Specifications</h2>
+            <div className="h-1 w-16 bg-gold" />
           </div>
-          <div className="bg-white rounded overflow-hidden">
+          <div className="bg-white rounded-lg overflow-hidden border border-sand">
             <table className="w-full">
               <tbody>
                 {specs.map((spec, i) => (
                   <tr
                     key={spec.feature}
-                    className={`${i % 2 === 0 ? 'bg-off-white' : 'bg-white'} border-b border-text-muted/10`}
+                    className={`${i % 2 === 0 ? 'bg-stone/30' : 'bg-white'} border-b border-sand`}
                   >
-                    <td className="px-8 py-5 text-sm font-medium text-text-dark w-1/3">
+                    <td className="px-8 py-5 text-sm font-medium text-ink w-1/3">
                       {spec.feature}
                     </td>
-                    <td className="px-8 py-5 text-sm text-text-muted">{spec.value}</td>
+                    <td className="px-8 py-5 text-sm text-ink/70">{spec.value}</td>
                   </tr>
                 ))}
               </tbody>
@@ -144,23 +144,23 @@ export default function PaperBags() {
       </section>
 
       {/* Features Banner */}
-      <section className="bg-navy section-padding">
-        <div className="content-max mx-auto">
+      <section className="bg-charcoal py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-8">
               <ShoppingBag className="w-10 h-10 text-gold mx-auto mb-4" />
-              <h3 className="text-h3 text-ivory mb-2">Any Size</h3>
-              <p className="text-sm text-ivory/60">From tiny jewelry bags to large retail carriers.</p>
+              <h3 className="text-2xl font-bold text-white mb-2">Any Size</h3>
+              <p className="text-sm text-white/70">From tiny jewelry bags to large retail carriers.</p>
             </div>
             <div className="p-8">
               <ShoppingBag className="w-10 h-10 text-gold mx-auto mb-4" />
-              <h3 className="text-h3 text-ivory mb-2">Any Print</h3>
-              <p className="text-sm text-ivory/60">Full-color offset, screen, or UV printing.</p>
+              <h3 className="text-2xl font-bold text-white mb-2">Any Print</h3>
+              <p className="text-sm text-white/70">Full-color offset, screen, or UV printing.</p>
             </div>
             <div className="p-8">
               <ShoppingBag className="w-10 h-10 text-gold mx-auto mb-4" />
-              <h3 className="text-h3 text-ivory mb-2">Any Volume</h3>
-              <p className="text-sm text-ivory/60">From 500 units to millions per month.</p>
+              <h3 className="text-2xl font-bold text-white mb-2">Any Volume</h3>
+              <p className="text-sm text-white/70">From 500 units to millions per month.</p>
             </div>
           </div>
         </div>

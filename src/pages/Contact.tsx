@@ -52,26 +52,29 @@ export default function Contact() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center bg-navy pt-24">
+      <section className="relative min-h-[60vh] flex items-center bg-ink pt-24">
         <div className="content-max mx-auto px-[clamp(20px,5vw,80px)] w-full">
-          <h1 className="text-display-md text-ivory mb-4">Get Your Quote</h1>
-          <p className="text-body-lg text-ivory/60 max-w-xl">
+          <span className="inline-block text-sm font-bold tracking-widest uppercase text-gold bg-gold/10 px-4 py-2 rounded-full mb-4">
+            Get in Touch
+          </span>
+          <h1 className="text-5xl font-black text-white mb-4">Get Your Quote</h1>
+          <p className="text-lg text-white/70 max-w-xl">
             Tell us what you need. We'll respond within 30 minutes during business hours.
           </p>
         </div>
       </section>
 
       {/* Contact Form + Info */}
-      <section className="bg-ivory section-padding">
-        <div className="content-max mx-auto">
+      <section className="bg-stone py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-5xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Form */}
             <div ref={formRef}>
               {submitted ? (
                 <div className="bg-success/10 rounded-lg p-12 text-center">
                   <CheckCircle className="w-16 h-16 text-success mx-auto mb-4" />
-                  <h3 className="text-h2 text-text-dark mb-2">Quote Request Received!</h3>
-                  <p className="text-text-muted">
+                  <h3 className="text-3xl font-bold text-ink mb-2">Quote Request Received!</h3>
+                  <p className="text-ink/70">
                     Our team will review your requirements and respond within 30 minutes.
                   </p>
                 </div>
@@ -79,59 +82,59 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="text-caption text-text-muted block mb-2">Name *</label>
+                      <label className="text-xs font-bold uppercase tracking-wider text-ink/70 block mb-2">Name *</label>
                       <input
                         type="text"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full py-3 bg-transparent border-b border-text-muted/30 focus:border-gold outline-none text-text-dark"
+                        className="w-full py-3 bg-transparent border-b border-sand focus:border-gold outline-none text-ink"
                         placeholder="Your full name"
                       />
                     </div>
                     <div>
-                      <label className="text-caption text-text-muted block mb-2">Company *</label>
+                      <label className="text-xs font-bold uppercase tracking-wider text-ink/70 block mb-2">Company *</label>
                       <input
                         type="text"
                         required
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full py-3 bg-transparent border-b border-text-muted/30 focus:border-gold outline-none text-text-dark"
+                        className="w-full py-3 bg-transparent border-b border-sand focus:border-gold outline-none text-ink"
                         placeholder="Company name"
                       />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="text-caption text-text-muted block mb-2">Email *</label>
+                      <label className="text-xs font-bold uppercase tracking-wider text-ink/70 block mb-2">Email *</label>
                       <input
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full py-3 bg-transparent border-b border-text-muted/30 focus:border-gold outline-none text-text-dark"
+                        className="w-full py-3 bg-transparent border-b border-sand focus:border-gold outline-none text-ink"
                         placeholder="email@company.com"
                       />
                     </div>
                     <div>
-                      <label className="text-caption text-text-muted block mb-2">Phone *</label>
+                      <label className="text-xs font-bold uppercase tracking-wider text-ink/70 block mb-2">Phone *</label>
                       <input
                         type="tel"
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full py-3 bg-transparent border-b border-text-muted/30 focus:border-gold outline-none text-text-dark"
+                        className="w-full py-3 bg-transparent border-b border-sand focus:border-gold outline-none text-ink"
                         placeholder="+91 98765 43210"
                       />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="text-caption text-text-muted block mb-2">Product Type</label>
+                      <label className="text-xs font-bold uppercase tracking-wider text-ink/70 block mb-2">Product Type</label>
                       <select
                         value={formData.productType}
                         onChange={(e) => setFormData({ ...formData, productType: e.target.value })}
-                        className="w-full py-3 bg-transparent border-b border-text-muted/30 focus:border-gold outline-none text-text-dark"
+                        className="w-full py-3 bg-transparent border-b border-sand focus:border-gold outline-none text-ink"
                       >
                         <option value="">Select product</option>
                         <option value="paper-bags">Paper Bags</option>
@@ -142,28 +145,28 @@ export default function Contact() {
                       </select>
                     </div>
                     <div>
-                      <label className="text-caption text-text-muted block mb-2">Quantity</label>
+                      <label className="text-xs font-bold uppercase tracking-wider text-ink/70 block mb-2">Quantity</label>
                       <input
                         type="text"
                         value={formData.quantity}
                         onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                        className="w-full py-3 bg-transparent border-b border-text-muted/30 focus:border-gold outline-none text-text-dark"
+                        className="w-full py-3 bg-transparent border-b border-sand focus:border-gold outline-none text-ink"
                         placeholder="e.g. 5,000 units"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="text-caption text-text-muted block mb-2">Specifications</label>
+                    <label className="text-xs font-bold uppercase tracking-wider text-ink/70 block mb-2">Specifications</label>
                     <textarea
                       value={formData.specifications}
                       onChange={(e) => setFormData({ ...formData, specifications: e.target.value })}
                       rows={4}
-                      className="w-full py-3 bg-transparent border-b border-text-muted/30 focus:border-gold outline-none text-text-dark resize-none"
+                      className="w-full py-3 bg-transparent border-b border-sand focus:border-gold outline-none text-ink resize-none"
                       placeholder="Size, material, finish, colors, delivery timeline..."
                     />
                   </div>
-                  <button type="submit" className="btn-primary w-full md:w-auto">
-                    <Send className="w-4 h-4 mr-2" />
+                  <button type="submit" className="inline-flex items-center gap-2 bg-gold text-ink font-bold py-3 px-8 rounded-lg hover:bg-gold-light transition-colors">
+                    <Send className="w-4 h-4" />
                     Get My Quote
                   </button>
                 </form>
@@ -172,8 +175,8 @@ export default function Contact() {
 
             {/* Contact Info */}
             <div className="space-y-8">
-              <div className="bg-off-white rounded-lg p-8">
-                <h3 className="text-h3 text-text-dark mb-6">Contact Information</h3>
+              <div className="bg-white rounded-lg p-8 border border-sand">
+                <h3 className="text-2xl font-bold text-ink mb-6">Contact Information</h3>
                 <div className="space-y-4">
                   <a
                     href="https://wa.me/919819824242"
@@ -183,38 +186,38 @@ export default function Contact() {
                   >
                     <MessageCircle className="w-6 h-6 text-success" />
                     <div>
-                      <span className="text-sm font-medium text-text-dark block">WhatsApp</span>
-                      <span className="text-sm text-text-muted">+91 98198 24242</span>
+                      <span className="text-sm font-bold text-ink block">WhatsApp</span>
+                      <span className="text-sm text-ink/70">+91 98198 24242</span>
                     </div>
                   </a>
                   <div className="flex items-center gap-4 p-4">
                     <Phone className="w-6 h-6 text-gold" />
                     <div>
-                      <span className="text-sm font-medium text-text-dark block">Phone</span>
-                      <span className="text-sm text-text-muted">+91 98198 24242</span>
+                      <span className="text-sm font-bold text-ink block">Phone</span>
+                      <span className="text-sm text-ink/70">+91 98198 24242</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 p-4">
                     <Mail className="w-6 h-6 text-gold" />
                     <div>
-                      <span className="text-sm font-medium text-text-dark block">Email</span>
-                      <span className="text-sm text-text-muted">info@picassopack.com</span>
+                      <span className="text-sm font-bold text-ink block">Email</span>
+                      <span className="text-sm text-ink/70">info@picassopack.com</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 p-4">
                     <MapPin className="w-6 h-6 text-gold" />
                     <div>
-                      <span className="text-sm font-medium text-text-dark block">Address</span>
-                      <span className="text-sm text-text-muted">Mumbai, Maharashtra, India</span>
+                      <span className="text-sm font-bold text-ink block">Address</span>
+                      <span className="text-sm text-ink/70">Mumbai, Maharashtra, India</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-navy rounded-lg p-8 text-center">
+              <div className="bg-charcoal rounded-lg p-8 text-center">
                 <Clock className="w-8 h-8 text-gold mx-auto mb-3" />
-                <span className="text-h3 text-ivory block mb-1">Under 30 Minutes</span>
-                <span className="text-sm text-ivory/60">Average quote response time</span>
+                <span className="text-2xl font-bold text-white block mb-1">Under 30 Minutes</span>
+                <span className="text-sm text-white/70">Average quote response time</span>
               </div>
             </div>
           </div>
@@ -222,29 +225,29 @@ export default function Contact() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-off-white section-padding">
-        <div className="content-max mx-auto">
-          <div className="mb-12">
-            <h2 className="text-h1 text-text-dark mb-4">Frequently Asked Questions</h2>
-            <div className="gold-line" />
+      <section className="bg-stone py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-5xl">
+          <div className="mb-16">
+            <h2 className="text-4xl font-black text-ink mb-4">Frequently Asked Questions</h2>
+            <div className="h-1 w-16 bg-gold" />
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-white rounded-lg overflow-hidden">
+              <div key={i} className="bg-white rounded-lg overflow-hidden border border-sand">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-6 text-left"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-stone/30 transition-colors"
                 >
-                  <span className="text-sm font-medium text-text-dark pr-4">{faq.question}</span>
+                  <span className="text-sm font-medium text-ink pr-4">{faq.question}</span>
                   {openFaq === i ? (
                     <ChevronUp className="w-5 h-5 text-gold flex-shrink-0" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-text-muted flex-shrink-0" />
+                    <ChevronDown className="w-5 h-5 text-ink/50 flex-shrink-0" />
                   )}
                 </button>
                 {openFaq === i && (
-                  <div className="px-6 pb-6">
-                    <p className="text-sm text-text-muted leading-relaxed">{faq.answer}</p>
+                  <div className="px-6 pb-6 border-t border-sand">
+                    <p className="text-sm text-ink/70 leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

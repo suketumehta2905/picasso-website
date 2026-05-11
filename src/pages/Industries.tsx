@@ -184,17 +184,20 @@ export default function Industries() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center bg-navy pt-24">
+      <section className="relative min-h-[50vh] flex items-center bg-ink pt-24">
         <div className="content-max mx-auto px-[clamp(20px,5vw,80px)] w-full">
-          <h1 className="text-display-md text-ivory mb-4">Custom Packaging for Beauty, Fashion, Gifting, Food, Tech & More</h1>
-          <p className="text-body-lg text-ivory/60 max-w-2xl">
+          <span className="inline-block text-sm font-bold tracking-widest uppercase text-gold bg-gold/10 px-4 py-2 rounded-full mb-4">
+            Industries
+          </span>
+          <h1 className="text-5xl font-black text-white mb-4">Packaging Solutions for Every Industry</h1>
+          <p className="text-lg text-white/70 max-w-2xl">
             Industry-specific packaging solutions tailored to your sector's unique requirements, compliance needs, and brand positioning.
           </p>
         </div>
       </section>
 
       {/* Industry Sections */}
-      <section className="bg-ivory" ref={industryRef}>
+      <section className="bg-stone" ref={industryRef}>
         {industries.map((industry, idx) => {
           const Icon = industry.icon
           const isEven = idx % 2 === 0
@@ -216,17 +219,17 @@ export default function Industries() {
                 <div className={`flex flex-col justify-center p-8 md:p-12 ${isEven ? '' : 'lg:order-1'}`}>
                   <div className="flex items-center gap-3 mb-4">
                     <Icon className="w-6 h-6 text-gold" />
-                    <h2 className="text-h1 text-text-dark">{industry.title}</h2>
+                    <h2 className="text-3xl font-bold text-ink">{industry.title}</h2>
                   </div>
 
-                  <p className="text-body-lg text-text-muted mb-6">{industry.shortDesc}</p>
+                  <p className="text-lg text-ink/70 mb-6">{industry.shortDesc}</p>
 
                   {/* Challenges */}
                   <div className="mb-8">
-                    <h4 className="text-h3 text-navy mb-4">Key Packaging Challenges:</h4>
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-ink mb-4">Key Packaging Challenges</h4>
                     <ul className="space-y-2">
                       {industry.challenges.map((challenge, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm text-text-muted">
+                        <li key={i} className="flex items-start gap-3 text-sm text-ink/70">
                           <CheckCircle className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
                           <span>{challenge}</span>
                         </li>
@@ -235,20 +238,20 @@ export default function Industries() {
                   </div>
 
                   {/* Recommendations */}
-                  <div className="mb-8 pb-8 border-b border-text-muted/10">
-                    <h4 className="text-h3 text-navy mb-4">Our Recommendations:</h4>
+                  <div className="mb-8 pb-8 border-b border-sand">
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-ink mb-4">Our Recommendations</h4>
                     <div className="space-y-3 text-sm">
                       <div>
-                        <span className="font-semibold text-navy">Packaging Formats:</span>
-                        <p className="text-text-muted">{industry.recommendations.formats.join(', ')}</p>
+                        <span className="font-semibold text-ink">Packaging Formats:</span>
+                        <p className="text-ink/70">{industry.recommendations.formats.join(', ')}</p>
                       </div>
                       <div>
-                        <span className="font-semibold text-navy">Materials:</span>
-                        <p className="text-text-muted">{industry.recommendations.materials.join(', ')}</p>
+                        <span className="font-semibold text-ink">Materials:</span>
+                        <p className="text-ink/70">{industry.recommendations.materials.join(', ')}</p>
                       </div>
                       <div>
-                        <span className="font-semibold text-navy">Finishes:</span>
-                        <p className="text-text-muted">{industry.recommendations.finishes.join(', ')}</p>
+                        <span className="font-semibold text-ink">Finishes:</span>
+                        <p className="text-ink/70">{industry.recommendations.finishes.join(', ')}</p>
                       </div>
                     </div>
                   </div>
@@ -256,7 +259,7 @@ export default function Industries() {
                   {/* CTA */}
                   <Link
                     to={industry.ctaLink}
-                    className="inline-flex items-center gap-2 bg-gold text-navy font-semibold py-3 px-6 rounded-lg hover:bg-gold-light transition-colors w-fit"
+                    className="inline-flex items-center gap-2 bg-gold text-ink font-bold py-3 px-6 rounded-lg hover:bg-gold-light transition-colors w-fit"
                   >
                     {industry.cta}
                     <ArrowRight className="w-4 h-4" />
@@ -268,63 +271,39 @@ export default function Industries() {
         })}
       </section>
 
-      {/* Related Blog Links */}
-      <section className="bg-navy-light py-12 px-4 md:px-8">
-        <div className="content-max mx-auto">
-          <p className="text-ivory text-sm text-center mb-6">
-            Looking to understand packaging better? Read our industry-specific guides.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/blog" className="text-gold hover:text-gold-light text-sm font-medium">
-              📖 Packaging for Beauty Brands
-            </Link>
-            <span className="text-ivory/30">•</span>
-            <Link to="/blog" className="text-gold hover:text-gold-light text-sm font-medium">
-              📖 Premium Rigid Boxes for Jewelry
-            </Link>
-            <span className="text-ivory/30">•</span>
-            <Link to="/blog" className="text-gold hover:text-gold-light text-sm font-medium">
-              📖 QSR Paper Bag Guide
-            </Link>
-            <span className="text-ivory/30">•</span>
-            <Link to="/finishes" className="text-gold hover:text-gold-light text-sm font-medium">
-              📖 Packaging Finishes Explained
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Case Studies */}
-      <section className="bg-ivory section-padding">
-        <div className="content-max mx-auto" ref={caseRef}>
-          <div className="mb-16">
-            <h2 className="text-h1 text-text-dark mb-4">Success Stories Across Industries</h2>
-            <p className="text-body-lg text-text-muted max-w-2xl">
+      <section className="bg-stone py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-5xl" ref={caseRef}>
+          <div className="text-center mb-16">
+            <span className="inline-block text-sm font-bold tracking-widest uppercase text-gold bg-gold/10 px-4 py-2 rounded-full mb-4">
+              Success Stories
+            </span>
+            <h2 className="text-5xl font-black text-ink mb-4">Real Results from Real Brands</h2>
+            <p className="text-lg text-ink/70 max-w-2xl mx-auto">
               How brands in different industries solved their packaging challenges with Picasso solutions.
             </p>
-            <div className="gold-line mt-6" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {caseStudies.map((study) => (
-              <div key={study.client} className="case-card bg-off-white rounded-lg p-6 shadow-card hover:shadow-card-hover transition-shadow">
-                <div className="mb-4">
-                  <span className="text-caption text-gold font-semibold">{study.client}</span>
-                  <p className="text-xs text-text-muted mt-1">{study.industry}</p>
+              <div key={study.client} className="case-card bg-white rounded-lg p-6 border border-sand hover:shadow-elevated transition-all">
+                <div className="mb-6">
+                  <p className="text-sm font-bold text-ink">{study.client}</p>
+                  <p className="text-xs text-gold font-semibold uppercase tracking-wider mt-1">{study.industry}</p>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <span className="text-xs text-navy uppercase tracking-wider font-semibold block mb-2">Challenge</span>
-                    <p className="text-sm text-text-muted">{study.challenge}</p>
+                    <span className="text-xs text-ink/60 uppercase tracking-wider font-semibold block mb-2">Challenge</span>
+                    <p className="text-sm text-ink/70">{study.challenge}</p>
                   </div>
-                  <div className="pt-4 border-t border-text-muted/10">
-                    <span className="text-xs text-navy uppercase tracking-wider font-semibold block mb-2">Solution</span>
-                    <p className="text-sm text-text-muted">{study.solution}</p>
+                  <div className="pt-4 border-t border-sand">
+                    <span className="text-xs text-ink/60 uppercase tracking-wider font-semibold block mb-2">Solution</span>
+                    <p className="text-sm text-ink/70">{study.solution}</p>
                   </div>
-                  <div className="pt-4 border-t border-text-muted/10">
+                  <div className="pt-4 border-t border-sand">
                     <span className="text-xs text-gold uppercase tracking-wider font-semibold block mb-2">Result</span>
-                    <p className="text-sm text-text-dark font-medium">{study.result}</p>
+                    <p className="text-sm text-ink font-medium">{study.result}</p>
                   </div>
                 </div>
               </div>
@@ -334,17 +313,18 @@ export default function Industries() {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-gradient-to-r from-navy to-navy-light py-16 px-4 md:px-8">
-        <div className="content-max mx-auto max-w-2xl text-center">
-          <h2 className="text-h1 text-ivory mb-4">Ready to Upgrade Your Packaging?</h2>
-          <p className="text-body-lg text-ivory/70 mb-8">
+      <section className="bg-ink py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-3xl text-center">
+          <h2 className="text-5xl font-black text-white mb-6">Ready to Upgrade Your Packaging?</h2>
+          <p className="text-lg text-white/70 mb-8">
             Our packaging experts understand your industry's unique challenges. Let's discuss your specific needs and find the perfect solution.
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-gold text-navy font-semibold py-4 px-10 rounded-lg hover:bg-gold-light transition-colors text-lg"
+            className="inline-flex items-center gap-2 bg-gold text-ink font-bold py-4 px-10 rounded-lg hover:bg-gold-light transition-colors text-lg"
           >
             Request Your Industry Quote
+            <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </section>

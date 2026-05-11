@@ -63,19 +63,19 @@ export default function RigidBoxes() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center bg-navy pt-24">
+      <section className="relative min-h-[60vh] flex items-center bg-ink pt-24">
         <div className="content-max mx-auto px-[clamp(20px,5vw,80px)] w-full">
           <div className="mb-4">
-            <Link to="/" className="text-caption text-ivory/40 hover:text-gold transition-colors">
+            <Link to="/" className="text-sm text-white/40 hover:text-gold transition-colors">
               Home
             </Link>
-            <span className="text-caption text-ivory/40 mx-2">/</span>
-            <Link to="/products/rigid-boxes" className="text-caption text-gold">
+            <span className="text-sm text-white/40 mx-2">/</span>
+            <Link to="/products/rigid-boxes" className="text-sm text-gold">
               Rigid Boxes
             </Link>
           </div>
-          <h1 className="text-display-md text-ivory mb-4">Premium Rigid Boxes Engineered for the Reveal</h1>
-          <p className="text-body-lg text-ivory/60 max-w-2xl">
+          <h1 className="text-5xl font-black text-white mb-4">Premium Rigid Boxes Engineered for the Reveal</h1>
+          <p className="text-lg text-white/70 max-w-2xl">
             Premium rigid boxes for cosmetics, perfumes, jewelry, electronics, gifting, fashion, and D2C brands.
             Custom sizes, inserts, foil, embossing, and luxury finishes. Magnetic closure and drawer style options.
             Perfect for premium unboxing experiences. Start from 500 units.
@@ -84,15 +84,15 @@ export default function RigidBoxes() {
       </section>
 
       {/* Product Types */}
-      <section className="bg-ivory section-padding">
-        <div className="content-max mx-auto" ref={cardsRef}>
+      <section className="bg-stone py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-5xl" ref={cardsRef}>
           <div className="mb-16">
-            <h2 className="text-h1 text-text-dark mb-4">Rigid Box Types</h2>
-            <div className="gold-line" />
+            <h2 className="text-4xl font-black text-ink mb-4">Rigid Box Types</h2>
+            <div className="h-1 w-16 bg-gold" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {boxTypes.map((box) => (
-              <div key={box.title} className="box-card bg-off-white rounded overflow-hidden card-hover group">
+              <div key={box.title} className="box-card bg-white rounded-lg overflow-hidden hover:shadow-elevated transition-all group border border-sand">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={box.image}
@@ -102,11 +102,11 @@ export default function RigidBoxes() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-h3 text-text-dark mb-2">{box.title}</h3>
-                  <p className="text-sm text-text-muted leading-relaxed mb-4">{box.description}</p>
+                  <h3 className="text-lg font-bold text-ink mb-2">{box.title}</h3>
+                  <p className="text-sm text-ink/70 leading-relaxed mb-4">{box.description}</p>
                   <Link
                     to="/contact"
-                    className="text-caption text-gold hover:text-gold-dim inline-flex items-center gap-2"
+                    className="text-sm text-gold font-semibold hover:text-gold-light inline-flex items-center gap-2"
                   >
                     Request Sample
                     <ArrowRight className="w-3 h-3" />
@@ -119,20 +119,20 @@ export default function RigidBoxes() {
       </section>
 
       {/* Finishes */}
-      <section className="bg-navy section-padding">
-        <div className="content-max mx-auto">
-          <div className="mb-12">
-            <h2 className="text-h1 text-ivory mb-4">Finishes That Impress</h2>
-            <div className="gold-line" />
+      <section className="bg-charcoal py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-5xl">
+          <div className="mb-16">
+            <h2 className="text-4xl font-black text-white mb-4">Finishes That Impress</h2>
+            <div className="h-1 w-16 bg-gold" />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {finishes.map((finish) => (
               <div
                 key={finish}
-                className="bg-navy-light rounded p-6 text-center border border-ivory/10 hover:border-gold/30 transition-colors"
+                className="rounded-lg p-6 text-center border border-white/10 hover:border-gold/30 transition-colors"
               >
                 <Box className="w-6 h-6 text-gold mx-auto mb-3" />
-                <span className="text-sm text-ivory/80">{finish}</span>
+                <span className="text-sm text-white/80">{finish}</span>
               </div>
             ))}
           </div>
