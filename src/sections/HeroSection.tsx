@@ -50,7 +50,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/Hero banner 1.png"
+          src="/images/Hero banner 1.png"
           alt="Premium Picasso Print and Pack branded packaging - rigid boxes and paper bags"
           className="w-full h-full object-cover opacity-45"
         />
