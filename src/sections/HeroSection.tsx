@@ -86,24 +86,6 @@ export default function HeroSection() {
           </Link>
         </div>
 
-        {/* Meta Info */}
-        <div
-          ref={metaRef}
-          className="absolute bottom-12 left-[clamp(20px,5vw,80px)] right-[clamp(20px,5vw,80px)] flex items-center justify-between"
-        >
-          <span className="text-caption text-ivory/40">EST. 2008</span>
-          <span className="text-caption text-ivory/40">MUMBAI, INDIA</span>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-        <div className="flex flex-col items-center gap-2">
-          <div className="w-[1px] h-8 bg-ivory/30 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-3 bg-gold animate-bounce-subtle" />
-          </div>
-          <ChevronDown className="w-4 h-4 text-ivory/40" />
-        </div>
       </div>
     </section>
   )
