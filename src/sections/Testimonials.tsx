@@ -26,8 +26,19 @@ export default function Testimonials() {
   const containerRef = useStaggerFadeIn('.testimonial-card', 0.15)
 
   return (
-    <section className="bg-navy section-padding">
-      <div className="content-max mx-auto" ref={containerRef}>
+    <section
+      className="relative section-padding overflow-hidden"
+      style={{
+        backgroundImage: 'url(/images/product-rigid-boxes.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 bg-navy/75 backdrop-blur-sm" />
+
+      <div className="content-max mx-auto relative z-10" ref={containerRef}>
         <div className="mb-12 text-center">
           <h2 className="text-h1 text-ivory mb-3">What Our Partners Say</h2>
           <p className="text-body-sm text-ivory/60 mb-6">Real feedback from real D2C brands we've partnered with</p>
@@ -51,14 +62,14 @@ export default function Testimonials() {
         {/* Other Testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {testimonials.slice(1).map((t) => (
-            <div key={t.name} className="testimonial-card bg-navy-light rounded p-8">
-              <Quote className="w-8 h-8 text-gold/20 mb-4" />
-              <blockquote className="text-sm text-ivory/80 leading-relaxed mb-6">
+            <div key={t.name} className="testimonial-card bg-navy/60 backdrop-blur-md rounded-lg p-8 border border-ivory/10 hover:border-gold/30 transition-all duration-300">
+              <Quote className="w-8 h-8 text-gold/30 mb-4" />
+              <blockquote className="text-sm text-ivory/90 leading-relaxed mb-6">
                 "{t.quote}"
               </blockquote>
               <div>
-                <p className="text-caption text-gold">{t.name}</p>
-                <p className="text-sm text-ivory/50 mt-1">
+                <p className="text-sm font-medium text-gold">{t.name}</p>
+                <p className="text-xs text-ivory/60 mt-1">
                   {t.title}, {t.company}
                 </p>
               </div>
