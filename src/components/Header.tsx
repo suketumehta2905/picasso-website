@@ -49,13 +49,19 @@ export default function Header() {
         }`}
       >
         <div className="content-max mx-auto px-[clamp(20px,5vw,80px)] flex items-center justify-between">
-          <Link to="/" className="relative z-50">
-            <span className="text-2xl md:text-3xl font-black tracking-tight uppercase text-ivory">
-              PICASSO
-            </span>
-            <span className="block text-[0.6rem] md:text-[0.7rem] tracking-[0.25em] uppercase text-gold font-medium -mt-1">
-              Print & Pack
-            </span>
+          <Link to="/" className="relative z-50 flex-shrink-0">
+            {/* Desktop: Full Logo */}
+            <img
+              src="/images/picasso-logo-premium.svg"
+              alt="Picasso Print & Pack - Premium Packaging for D2C Brands"
+              className="hidden md:block h-16 w-auto"
+            />
+            {/* Mobile: Mark Only */}
+            <img
+              src="/images/picasso-mark.svg"
+              alt="Picasso"
+              className="md:hidden h-12 w-12"
+            />
           </Link>
 
           {/* Desktop Nav */}
