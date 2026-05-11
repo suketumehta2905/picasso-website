@@ -7,7 +7,7 @@ interface CaseStudy {
   solution: string
   result: string
   metric: string
-  image?: string
+  image: string
 }
 
 const caseStudies: CaseStudy[] = [
@@ -18,6 +18,7 @@ const caseStudies: CaseStudy[] = [
     solution: 'Custom magnetic closure rigid boxes with gold foil stamping and custom tissue',
     result: 'Became a TikTok sensation with unboxing videos',
     metric: '+45% repeat purchase rate in 3 months',
+    image: '/images/industry-cosmetics.jpg',
   },
   {
     brand: 'Jewelry Collective',
@@ -26,6 +27,7 @@ const caseStudies: CaseStudy[] = [
     solution: 'Drawer-style rigid boxes with embossing and custom velvet inserts',
     result: 'Generated 50K+ unboxing video views organically',
     metric: '60% higher perceived value among customers',
+    image: '/images/industry-jewelry.jpg',
   },
   {
     brand: 'Gifting Startup',
@@ -34,6 +36,7 @@ const caseStudies: CaseStudy[] = [
     solution: 'Premium rigid boxes with foil stamping, custom tissue, and branded inserts',
     result: 'Customers shared unboxing experiences on social media',
     metric: '+75% customer retention in subscription cohort',
+    image: '/images/gallery-5.jpg',
   },
 ]
 
@@ -57,11 +60,13 @@ export default function CaseStudiesSection() {
               key={index}
               className="bg-white rounded-xl overflow-hidden border border-text-muted/10 hover:shadow-card transition-all duration-300 group"
             >
-              {/* Image Placeholder */}
-              <div className="aspect-video bg-gradient-to-br from-gold/5 to-gold/10 flex items-center justify-center text-4xl">
-                {index === 0 && '💄'}
-                {index === 1 && '💎'}
-                {index === 2 && '🎁'}
+              {/* Image */}
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={study.image}
+                  alt={study.brand}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
 
               <div className="p-6">
