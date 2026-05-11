@@ -29,7 +29,7 @@ export default function Testimonials() {
     <section
       className="relative section-padding overflow-hidden"
       style={{
-        backgroundImage: 'url(/images/product-rigid-boxes.jpg)',
+        backgroundImage: 'url(/images/Hero\ banner\ 1.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
