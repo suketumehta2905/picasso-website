@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ChevronDown } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import gsap from 'gsap'
 
 export default function HeroSection() {
@@ -8,7 +8,6 @@ export default function HeroSection() {
   const titleRef = useRef<HTMLDivElement>(null)
   const subtitleRef = useRef<HTMLParagraphElement>(null)
   const ctaRef = useRef<HTMLDivElement>(null)
-  const metaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -30,12 +29,6 @@ export default function HeroSection() {
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' },
           '-=0.4'
-        )
-        .fromTo(
-          metaRef.current?.querySelectorAll('span') || [],
-          { opacity: 0 },
-          { opacity: 1, duration: 0.6, stagger: 0.1 },
-          '-=0.3'
         )
     }, heroRef)
 

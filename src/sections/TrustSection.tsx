@@ -23,7 +23,7 @@ export default function TrustSection() {
     <section className="bg-navy-light py-12 px-4 md:px-8">
       <div className="content-max mx-auto">
         <h2 className="text-center text-body text-ivory/70 mb-10">
-          Trusted by 500+ D2C Brands & Startups
+          Trusted by Top Brands & Startups
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
