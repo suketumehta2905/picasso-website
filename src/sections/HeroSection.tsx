@@ -50,7 +50,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-picasso-packaging.png"
+          src="/Hero banner 1.png"
           alt="Premium Picasso Print and Pack branded packaging - rigid boxes and paper bags"
           className="w-full h-full object-cover opacity-45"
         />
@@ -60,7 +60,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 content-max mx-auto px-[clamp(20px,5vw,80px)] text-center pt-24 pb-32">
         <div ref={titleRef} className="mb-8">
-          <h1 className="text-display text-ivory">
+          <h1 className="text-display-md text-ivory">
             <span className="hero-line block">PREMIUM PACKAGING</span>
             <span className="hero-line block">FOR STARTUPS,</span>
             <span className="hero-line block text-gold">D2C & BRANDS</span>
@@ -69,7 +69,7 @@ export default function HeroSection() {
 
         <p
           ref={subtitleRef}
-          className="text-body-lg text-ivory/60 max-w-2xl mx-auto mb-10"
+          className="text-body text-ivory/60 max-w-2xl mx-auto mb-10"
         >
           Custom rigid boxes, luxury paper bags, and printed packaging with practical order
           quantities from 500 to 10,000+ units. Premium finishes, fast turnaround,
