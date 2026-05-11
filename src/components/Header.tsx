@@ -49,18 +49,20 @@ export default function Header() {
         }`}
       >
         <div className="content-max mx-auto px-[clamp(20px,5vw,80px)] flex items-center justify-between">
-          <Link to="/" className="relative z-50 flex-shrink-0">
-            {/* Desktop: Full Logo */}
+          <Link to="/" className="relative z-50 flex-shrink-0 hover:opacity-80 transition-opacity">
+            {/* Desktop: Full Logo (Dark version for header) */}
             <img
-              src="/images/picasso-logo-premium.svg"
+              src="/images/picasso-logo-dark.svg"
               alt="Picasso Print & Pack - Premium Packaging for D2C Brands"
-              className="hidden md:block h-16 w-auto"
+              className="hidden md:block h-14 w-auto"
+              loading="eager"
             />
-            {/* Mobile: Mark Only */}
+            {/* Mobile: Mark Only (Dark version for header) */}
             <img
-              src="/images/picasso-mark.svg"
+              src="/images/picasso-mark-dark.svg"
               alt="Picasso"
-              className="md:hidden h-12 w-12"
+              className="md:hidden h-10 w-10"
+              loading="eager"
             />
           </Link>
 

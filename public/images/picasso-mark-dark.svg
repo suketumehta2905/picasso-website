@@ -1,0 +1,29 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circular background -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#D4A574" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Premium Rigid Box Mark -->
+  <g transform="translate(50, 40)">
+    <!-- Top face of box -->
+    <path d="M 40 40 L 60 25 L 80 40 L 60 55 Z" fill="none" stroke="#F5F0E8" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- Left face -->
+    <path d="M 40 40 L 40 75 L 60 90 L 60 55 Z" fill="none" stroke="#F5F0E8" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- Right face -->
+    <path d="M 80 40 L 80 75 L 60 90 L 60 55 Z" fill="none" stroke="#F5F0E8" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- Lid opening (premium unboxing) -->
+    <path d="M 40 40 Q 45 10 65 5 L 85 20 Q 80 50 60 55" fill="none" stroke="#F5F0E8" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+
+    <!-- Shimmer/foil details -->
+    <circle cx="50" cy="25" r="2.5" fill="#D4A574" opacity="0.9"/>
+    <circle cx="75" cy="28" r="2.5" fill="#D4A574" opacity="0.9"/>
+
+    <!-- Inner highlight -->
+    <ellipse cx="60" cy="60" rx="20" ry="16" fill="none" stroke="#F5F0E8" stroke-width="0.8" opacity="0.2"/>
+  </g>
+
+  <!-- Center dot for emphasis -->
+  <circle cx="100" cy="100" r="2" fill="#F5F0E8"/>
+</svg>
