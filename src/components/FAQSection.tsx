@@ -3,44 +3,49 @@ import { ChevronDown } from 'lucide-react'
 
 const faqs = [
   {
-    question: 'What is the difference between rigid boxes and folding cartons?',
-    answer: 'Rigid boxes are made from thick greyboard wrapped with printed paper—they feel sturdy and premium, perfect for luxury products, gifting, and unboxing experiences. Folding cartons are lightweight cardboard that are printed and folded, ideal for FMCG, pharmaceuticals, and high-volume retail. Rigid boxes create stronger brand perception but cost more; folding cartons are economical and practical.',
+    question: 'What makes rigid boxes better for D2C brands than folding cartons?',
+    answer: 'Rigid boxes feel premium and substantial—they create a luxury unboxing experience that drives brand loyalty and social media content. They support custom finishes (foil, embossing, spot UV) and custom inserts that elevate perceived value. Perfect for beauty, jewelry, and luxury goods where unboxing is part of the brand story.',
     relatedBlog: 'Rigid Box vs Folding Carton',
   },
   {
-    question: 'What does MOQ (Minimum Order Quantity) mean?',
-    answer: 'MOQ is the smallest quantity a manufacturer will produce. At Picasso, we work with startups and D2C brands with practical MOQs starting from 500 units. Your MOQ depends on the packaging format, customization level, and production setup. We\'ll quote based on your needs.',
+    question: 'What does MOQ (Minimum Order Quantity) mean and what\'s yours?',
+    answer: 'MOQ is the smallest quantity we\'ll produce. At Picasso, our MOQ is 500 units—perfect for D2C brands testing products, launching limited editions, or seasonal releases. You can scale up as your business grows. No 10K+ minimum commitments required.',
     relatedBlog: 'How Startups Choose Premium Packaging',
   },
   {
-    question: 'What are the most popular paper bag handle types?',
-    answer: 'The main types are: (1) Twisted handles—classic, affordable, best for retail and promotions; (2) Flat handles—strongest, best for QSR and heavy items; (3) Rope handles—premium, luxurious, best for fashion and gifting; (4) D-cut—simple, die-cut, best for giveaways and events.',
-    relatedBlog: 'Top Paper Bag Styles',
+    question: 'What are the best rigid box structures for different products?',
+    answer: 'Magnetic closure boxes are perfect for beauty, cosmetics, and small gifts—they feel luxury and protect products. Drawer boxes are ideal for jewelry and high-end items—they create an elegant opening experience. Custom insert boxes work for any product category—they create branded unboxing moments.',
+    relatedBlog: 'Rigid Box Styles Guide',
   },
   {
-    question: 'What is spot UV and when should I use it?',
-    answer: 'Spot UV is a glossy coating applied to specific areas (usually logos or borders) while the rest remains matte. It creates a striking visual and tactile contrast that feels premium. Use it when you want to highlight your logo, create modern luxury packaging, or add emphasis to key design elements.',
-    relatedBlog: 'What Is Spot UV and When to Use It',
-  },
-  {
-    question: 'What is foil stamping and does it cost extra?',
-    answer: 'Foil stamping adds metallic shine (gold, silver, or copper) to selected areas on your packaging. It creates a luxury feel and catches light beautifully. Yes, foil stamping adds cost, but the premium feel often justifies the investment for high-end products, perfumes, jewelry, and premium gifting.',
+    question: 'What is foil stamping and why does it matter?',
+    answer: 'Foil stamping adds metallic shine (gold, silver, or copper) to your logo or design elements. It creates a luxury feel, catches light beautifully, and significantly increases perceived value. For D2C brands, foil stamping often justifies premium pricing—customers perceive higher value.',
     relatedBlog: 'Packaging Finishes Explained',
   },
   {
-    question: 'Can I order just 500 or 1,000 units?',
-    answer: 'Yes! We specialize in practical quantities for startups and growing brands. We can produce 500 units of custom rigid boxes, 1,000 custom paper bags, or mixed quantities across formats. We work with your timeline and budget.',
-    relatedBlog: 'How Startups Choose Premium Packaging',
+    question: 'What is spot UV and should I use it?',
+    answer: 'Spot UV is a glossy coating applied to specific areas (usually logos) while the rest stays matte. It creates striking visual contrast that feels premium and modern. Use it to make your logo pop, create luxury packaging, or add emphasis to key brand elements.',
+    relatedBlog: 'What Is Spot UV and When to Use It',
   },
   {
-    question: 'How long does it take to produce packaging?',
-    answer: 'Standard lead time is 4–6 weeks from artwork approval. Rush options (2–3 weeks) are available at a premium. Timelines vary based on customization level, quantity, and material. Share your deadline when requesting a quote.',
+    question: 'How much extra does it cost for premium finishes?',
+    answer: 'Premium finishes (foil, embossing, spot UV) add cost, but the increased perceived value often justifies the investment. A D2C beauty brand with foil-stamped packaging can command 20-30% higher prices. We provide quotes that break down finish costs so you can calculate ROI.',
+    relatedBlog: 'Premium Packaging & Perceived Value',
+  },
+  {
+    question: 'How long does production take?',
+    answer: 'Standard lead time is 4–6 weeks from artwork approval. Rush options (2–3 weeks) are available for product launches and seasonal releases. Timeline depends on customization level, quantity, and finish complexity. Share your deadline when requesting a quote.',
     relatedBlog: 'Packaging Quote Checklist',
   },
   {
-    question: 'What information do I need to provide for an accurate quote?',
-    answer: 'Share: (1) Product type and category, (2) Quantity needed, (3) Dimensions/size, (4) Material preference, (5) Finish preference, (6) Artwork or reference image, (7) Delivery city, (8) Expected timeline. Use our Quote Checklist to prepare.',
+    question: 'What information do I need to provide for a quote?',
+    answer: 'Share: (1) Brand/product name, (2) Product category (beauty, jewelry, fashion, gifting), (3) Quantity needed, (4) Box dimensions/size, (5) Material preference, (6) Desired finishes (foil, embossing, spot UV, etc.), (7) Artwork or reference images, (8) Timeline. Use our Quote Checklist for detailed guidance.',
     relatedBlog: 'Packaging Quote Checklist',
+  },
+  {
+    question: 'Can you help with packaging design or should I provide finished artwork?',
+    answer: 'We can do both! You can provide finished artwork, or our design team can collaborate with you. We recommend design collaboration for D2C brands—we help you choose finishes, structures, and materials that align with your brand positioning and maximize perceived value.',
+    relatedBlog: 'Packaging Design Strategy',
   },
 ]
 

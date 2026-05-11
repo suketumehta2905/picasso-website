@@ -1,12 +1,10 @@
 import HeroSection from '../sections/HeroSection'
-import TrustStrip from '../sections/TrustStrip'
-import KPIStats from '../sections/KPIStats'
-import PersonaCards from '../components/PersonaCards'
-import PackagingFinder from '../components/PackagingFinder'
-import ProductEcosystem from '../sections/ProductEcosystem'
-import WhyChooseUs from '../sections/WhyChooseUs'
-import IndustrySolutions from '../sections/IndustrySolutions'
-import ManufacturingCapability from '../sections/ManufacturingCapability'
+import TrustSection from '../sections/TrustSection'
+import ProductShowcaseSection from '../sections/ProductShowcaseSection'
+import WhyPickassoSection from '../sections/WhyPickassoSection'
+import PicassoProcessSection from '../sections/PicassoProcessSection'
+import IndustrySolutionsSection from '../sections/IndustrySolutionsSection'
+import CaseStudiesSection from '../sections/CaseStudiesSection'
 import GalleryShowcase from '../sections/GalleryShowcase'
 import Testimonials from '../sections/Testimonials'
 import FAQSection from '../components/FAQSection'
@@ -17,14 +15,12 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <TrustStrip />
-      <KPIStats />
-      <PersonaCards />
-      <PackagingFinder />
-      <ProductEcosystem />
-      <WhyChooseUs />
-      <IndustrySolutions />
-      <ManufacturingCapability />
+      <TrustSection />
+      <ProductShowcaseSection />
+      <WhyPickassoSection />
+      <PicassoProcessSection />
+      <IndustrySolutionsSection />
+      <CaseStudiesSection />
       <GalleryShowcase />
       <Testimonials />
       <FAQSection />

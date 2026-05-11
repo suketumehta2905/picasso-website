@@ -61,9 +61,9 @@ export default function HeroSection() {
       <div className="relative z-10 content-max mx-auto px-[clamp(20px,5vw,80px)] text-center pt-24 pb-32">
         <div ref={titleRef} className="mb-8">
           <h1 className="text-display-md text-ivory">
-            <span className="hero-line block">PREMIUM PACKAGING</span>
-            <span className="hero-line block">FOR STARTUPS,</span>
-            <span className="hero-line block text-gold">D2C & BRANDS</span>
+            <span className="hero-line block">PREMIUM RIGID BOXES</span>
+            <span className="hero-line block">THAT CREATE</span>
+            <span className="hero-line block text-gold">UNFORGETTABLE UNBOXING</span>
           </h1>
         </div>
 
@@ -71,18 +71,18 @@ export default function HeroSection() {
           ref={subtitleRef}
           className="text-body text-ivory/60 max-w-2xl mx-auto mb-10"
         >
-          Custom rigid boxes, luxury paper bags, and printed packaging with practical order
-          quantities from 500 to 10,000+ units. Premium finishes, fast turnaround,
-          and expert guidance for growing brands in Mumbai & India.
+          Luxury rigid boxes with magnetic closures, foil stamping, embossing & spot UV finishes.
+          Starting at 500 units for D2C brands that understand premium packaging drives brand loyalty.
+          Expert design collaboration from concept to delivery.
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link to="/contact" className="btn-primary group">
-            Get a Quote
+            Get Your Quote
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link to="/products/paper-bags" className="btn-secondary">
-            Explore Products
+          <Link to="/products" className="btn-secondary">
+            View Rigid Boxes
           </Link>
         </div>
 
