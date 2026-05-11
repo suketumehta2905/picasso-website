@@ -23,8 +23,8 @@ export default function Home() {
       <CaseStudiesSection />
       <GalleryShowcase />
       <Testimonials />
-      <FAQSection />
       <SustainabilitySection />
+      <FAQSection />
       <RFQCTA />
     </>
   )

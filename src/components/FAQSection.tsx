@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import ContactFormModal from './ContactFormModal'
 
 const faqs = [
   {
@@ -51,6 +52,7 @@ const faqs = [
 
 export default function FAQSection() {
   const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({})
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const toggleFAQ = (index: number) => {
     setExpanded((prev) => ({
@@ -60,15 +62,16 @@ export default function FAQSection() {
   }
 
   return (
-    <section className="bg-ivory py-16 px-4 md:px-8">
-      <div className="content-max mx-auto max-w-4xl">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-h1 text-text-dark mb-4">Frequently Asked Questions</h2>
-          <p className="text-body-lg text-text-muted max-w-2xl mx-auto">
-            Get answers to common questions about our packaging formats, materials, finishes, and ordering process.
-          </p>
-        </div>
+    <>
+      <section className="bg-ivory py-16 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-4xl">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-h2 text-text-dark mb-4">Frequently Asked Questions</h2>
+            <p className="text-body text-text-muted max-w-2xl mx-auto">
+              Get answers to common questions about our packaging formats, materials, finishes, and ordering process.
+            </p>
+          </div>
 
         {/* FAQ Accordion */}
         <div className="space-y-4">
@@ -82,7 +85,7 @@ export default function FAQSection() {
                 className="w-full text-left p-6 flex items-start justify-between gap-4 hover:bg-ivory transition-colors group"
               >
                 <span className="flex-1">
-                  <h3 className="text-h3 text-text-dark group-hover:text-navy transition-colors">
+                  <h3 className="text-body font-semibold text-text-dark group-hover:text-navy transition-colors">
                     {faq.question}
                   </h3>
                 </span>
@@ -95,7 +98,7 @@ export default function FAQSection() {
 
               {expanded[index] && (
                 <div className="px-6 pb-6 border-t border-text-muted/10 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <p className="text-body-lg text-text-muted mb-4">{faq.answer}</p>
+                  <p className="text-sm text-text-muted mb-4">{faq.answer}</p>
                   {faq.relatedBlog && (
                     <div className="pt-4 border-t border-text-muted/10">
                       <a
@@ -113,20 +116,23 @@ export default function FAQSection() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="mt-12 p-8 bg-gradient-to-r from-gold/10 to-gold-light/10 rounded-xl border border-gold/20 text-center">
-          <h3 className="text-h3 text-navy mb-3">Didn't find your answer?</h3>
-          <p className="text-body-lg text-text-dark mb-6">
-            Our packaging experts are ready to answer your specific questions. Reach out today.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block bg-gold text-navy font-semibold py-3 px-8 rounded-lg hover:bg-gold-light transition-colors"
-          >
-            Contact Our Experts
-          </a>
+          {/* CTA */}
+          <div className="mt-12 p-8 bg-gradient-to-r from-gold/10 to-gold-light/10 rounded-xl border border-gold/20 text-center">
+            <h3 className="text-h4 text-navy mb-3">Didn't find your answer?</h3>
+            <p className="text-body text-text-dark mb-6">
+              Our packaging experts are ready to answer your specific questions. Reach out today.
+            </p>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-block bg-gold text-navy font-semibold py-3 px-8 rounded-lg hover:bg-gold-light transition-colors"
+            >
+              Contact Our Experts
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <ContactFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   )
 }

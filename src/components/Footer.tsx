@@ -40,21 +40,20 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-4">
             <Link to="/" className="inline-block mb-6">
-              <span className="text-3xl font-black tracking-tight uppercase text-ivory">
-                PICASSO
-              </span>
-              <span className="block text-[0.7rem] tracking-[0.25em] uppercase text-gold font-medium -mt-1">
-                Print & Pack
-              </span>
+              <img
+                src="/images/picasso-logo-dark.svg"
+                alt="Picasso Print & Pack - Premium Packaging"
+                className="h-14 w-auto"
+              />
             </Link>
             <p className="text-ivory/60 text-sm leading-relaxed mb-6 max-w-sm">
               Premium packaging manufacturing for brands that demand excellence. 
               From concept to delivery, we build packaging that elevates your brand.
             </p>
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-ivory/60 text-sm">
-                <MapPin className="w-4 h-4 text-gold" />
-                <span>Mumbai, India — Serving brands nationwide</span>
+              <div className="flex items-start gap-3 text-ivory/60 text-sm">
+                <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
+                <span>Gala 16, New Industrial Building, Dr E. Moses Road, Worli, Mumbai 400018</span>
               </div>
               <div className="flex items-center gap-3 text-ivory/60 text-sm">
                 <Phone className="w-4 h-4 text-gold" />
