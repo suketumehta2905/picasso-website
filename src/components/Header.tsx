@@ -44,40 +44,40 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-navy/95 backdrop-blur-md py-4'
-            : 'bg-transparent py-6'
+            ? 'bg-navy/95 backdrop-blur-md py-3'
+            : 'bg-transparent py-4'
         }`}
       >
-        <div className="content-max mx-auto px-[clamp(20px,5vw,80px)] flex items-center justify-between">
+        <div className="content-max mx-auto px-[clamp(20px,5vw,80px)] flex items-center justify-between gap-12">
           <Link to="/" className="relative z-50 flex-shrink-0 hover:opacity-80 transition-opacity">
             {/* Desktop: Full Logo (Dark version for header) */}
             <img
               src="/images/picasso-logo-dark.svg"
               alt="Picasso Print & Pack - Premium Packaging for D2C Brands"
-              className="hidden md:block h-14 w-auto"
+              className="hidden md:block h-20 w-auto"
               loading="eager"
             />
             {/* Mobile: Mark Only (Dark version for header) */}
             <img
               src="/images/picasso-mark-dark.svg"
               alt="Picasso"
-              className="md:hidden h-10 w-10"
+              className="md:hidden h-12 w-12"
               loading="eager"
             />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 to={link.href}
-                className="text-nav uppercase text-ivory/70 hover:text-gold transition-colors duration-300"
+                className="text-sm uppercase font-bold tracking-wider text-ivory hover:text-gold transition-colors duration-300"
               >
                 {link.label}
               </Link>
             ))}
-            <Link to="/contact" className="btn-primary text-xs px-6 py-3">
+            <Link to="/contact" className="btn-primary text-sm font-bold px-8 py-3 ml-4">
               Get Quote
             </Link>
           </nav>
@@ -108,7 +108,7 @@ export default function Header() {
             <Link
               key={link.label}
               to={link.href}
-              className="text-h1 text-ivory hover:text-gold transition-colors duration-300"
+              className="text-h2 font-bold text-ivory hover:text-gold transition-colors duration-300 uppercase tracking-wide"
               style={{
                 transitionDelay: menuOpen ? `${i * 50}ms` : '0ms',
                 opacity: menuOpen ? 1 : 0,
