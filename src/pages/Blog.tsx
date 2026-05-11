@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Clock, ArrowRight } from 'lucide-react'
 import { useStaggerFadeIn } from '../hooks/useScrollAnimation'
-import { generateBlogSchema, injectSchema } from '../lib/schemaMarkup'
+import { injectSchema } from '../lib/schemaMarkup'
 
 const articles = [
   {

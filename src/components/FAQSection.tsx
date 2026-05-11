@@ -44,10 +44,6 @@ const faqs = [
   },
 ]
 
-interface FAQItem {
-  expanded: boolean
-}
-
 export default function FAQSection() {
   const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({})
 
