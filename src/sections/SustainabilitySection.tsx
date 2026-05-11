@@ -1,130 +1,124 @@
-import { CheckCircle2, BarChart3, Leaf } from 'lucide-react'
-import { useStaggerFadeIn } from '../hooks/useScrollAnimation'
+interface Benefit {
+  metric: string
+  label: string
+  description: string
+}
 
-const benefits = [
+const stats: Benefit[] = [
   {
-    icon: CheckCircle2,
-    title: 'Eco-Conscious Customers Expect It',
     metric: '73%',
-    description: 'of Gen Z consumers prefer brands with sustainable packaging',
-    detail: 'Premium packaging with certified sustainable materials directly impacts brand perception and customer retention.',
+    label: 'of Gen Z prefer sustainable packaging',
+    description: '',
   },
   {
-    icon: BarChart3,
-    title: 'Cost Competitive',
     metric: 'Same Price',
-    description: 'FSC kraft paper vs. standard paper (no premium cost)',
-    detail: 'Achieve sustainability goals without sacrificing margins. Our suppliers enable this at scale.',
+    label: 'as Standard paper',
+    description: '',
   },
   {
-    icon: Leaf,
-    title: 'Third-Party Verified',
     metric: '100%',
-    description: 'of raw materials tracked and certified by independent auditors',
-    detail: 'Not claims. Actual certifications: FSC, BSCI, SMETA audits. Full traceability for your supply chain.',
+    label: 'Certified & Audited',
+    description: '',
   },
 ]
 
-export default function SustainabilitySection() {
-  const containerRef = useStaggerFadeIn('.sustain-card', 0.12)
+const materials = [
+  { title: 'FSC Certified Paper & Board', desc: 'Traceable to responsibly managed forests' },
+  { title: 'Recycled Content Options', desc: '30%, 50%, 80% post-consumer waste available' },
+  { title: 'Biodegradable Alternatives', desc: 'Compostable paper & eco-inks for premium positioning' },
+  { title: 'Reduced Plastics', desc: 'Water-based inks, soy-based coatings, no micro-plastics' },
+]
 
+const certifications = [
+  { title: 'FSC Chain of Custody', desc: 'Every batch tracked from forest to your door' },
+  { title: 'BSCI Certified', desc: 'Supplier audits verify labor & environmental practices' },
+  { title: 'SMETA Audits', desc: 'Independent audits of factory practices & compliance' },
+  { title: 'Supplier Transparency', desc: 'We publish sourcing locations & certifications' },
+]
+
+const benefits = [
+  { title: 'Brand Perception', desc: 'Eco-conscious packaging strengthens brand trust.' },
+  { title: 'Social Content', desc: 'Sustainable unboxing is shareable. Customers post more often.' },
+  { title: 'No Cost Premium', desc: 'FSC kraft paper costs the same as standard.' },
+]
+
+export default function SustainabilitySection() {
   return (
-    <section className="bg-white section-padding border-t border-text-muted/10">
-      <div className="content-max mx-auto" ref={containerRef}>
-        <div className="mb-16">
-          <h2 className="text-h1 text-text-dark mb-4">Sustainable by Design</h2>
-          <p className="text-body text-text-muted max-w-2xl">
-            Your customers care about sustainability. We help you deliver it—without compromising quality, cost, or timeline.
+    <section className="bg-stone py-24 px-4 md:px-8">
+      <div className="content-max mx-auto max-w-5xl">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="inline-block text-sm font-bold tracking-widest uppercase text-gold bg-gold/10 px-4 py-2 rounded-full mb-4">
+            Sustainability
+          </span>
+          <h2 className="text-5xl font-black text-ink mb-6">Packaging That Performs — Without Compromising the Planet</h2>
+          <p className="text-lg text-text-muted max-w-2xl mx-auto">
+            Your customers care about sustainability. We help you deliver it — without sacrificing quality, cost, or timeline.
           </p>
         </div>
 
-        {/* Benefits Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {benefits.map((benefit, index) => {
-            const Icon = benefit.icon
-            return (
-              <div
-                key={index}
-                className="sustain-card bg-off-white rounded-xl p-8 border border-text-muted/10 hover:border-gold/30 transition-all duration-300"
-              >
-                <Icon className="w-10 h-10 text-gold mb-6" />
-                <div className="text-h2 text-navy font-bold mb-1">{benefit.metric}</div>
-                <h3 className="text-h4 text-text-dark mb-4">{benefit.title}</h3>
-                <p className="text-xs text-text-muted mb-4 leading-relaxed">{benefit.description}</p>
-                <p className="text-xs text-text-muted italic leading-relaxed">{benefit.detail}</p>
+        {/* Stat Cards */}
+        <div className="grid grid-cols-3 gap-4 md:gap-6 mb-16">
+          {stats.map((stat, idx) => (
+            <div key={idx} className="bg-white rounded-lg p-6 md:p-8 shadow-card text-center">
+              <div className="text-4xl md:text-5xl font-black text-success mb-3">
+                {stat.metric}
               </div>
-            )
-          })}
+              <p className="text-sm font-medium text-ink/60 uppercase tracking-wider">
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </div>
 
-        {/* Real Details Section */}
-        <div className="bg-navy-light rounded-xl p-10 border border-gold/10">
-          <h3 className="text-h2 text-ivory mb-8">What's Actually Available</h3>
+        {/* Materials & Certifications */}
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div>
+            <h3 className="font-bold text-ink text-lg mb-6 uppercase tracking-wider">Materials We Use</h3>
+            <ul className="space-y-4">
+              {materials.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="text-gold font-bold flex-shrink-0 mt-1">→</span>
+                  <div>
+                    <p className="font-bold text-ink text-sm">{item.title}</p>
+                    <p className="text-sm text-text-muted">{item.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-h4 text-gold mb-4">Materials We Use</h4>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-gold font-bold text-lg">→</span>
-                  <span className="text-sm text-ivory"><strong>FSC Certified Paper & Board</strong> - Traceable to responsibly managed forests (not greenwashing)</span>
+          <div>
+            <h3 className="font-bold text-ink text-lg mb-6 uppercase tracking-wider">Certifications & Audits</h3>
+            <ul className="space-y-4">
+              {certifications.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="text-success font-bold flex-shrink-0 mt-1">✓</span>
+                  <div>
+                    <p className="font-bold text-ink text-sm">{item.title}</p>
+                    <p className="text-sm text-text-muted">{item.desc}</p>
+                  </div>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-gold font-bold text-lg">→</span>
-                  <span className="text-sm text-ivory"><strong>Recycled Content Options</strong> - 30%, 50%, 80% post-consumer waste available</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-gold font-bold text-lg">→</span>
-                  <span className="text-sm text-ivory"><strong>Biodegradable Alternatives</strong> - Compostable paper & eco-inks for premium positioning</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-gold font-bold text-lg">→</span>
-                  <span className="text-sm text-ivory"><strong>Reduced Plastics</strong> - Water-based inks, soy-based coatings, no micro-plastics</span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-h4 text-gold mb-4">Certifications & Audits</h4>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-gold font-bold text-lg">✓</span>
-                  <span className="text-sm text-ivory"><strong>FSC Chain of Custody</strong> - Every batch tracked from forest to your facility</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-gold font-bold text-lg">✓</span>
-                  <span className="text-sm text-ivory"><strong>BSCI Certified</strong> - Supplier audits verify labor & environmental practices</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-gold font-bold text-lg">✓</span>
-                  <span className="text-sm text-ivory"><strong>SMETA Audits</strong> - Independent audits of factory practices & compliance</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-gold font-bold text-lg">✓</span>
-                  <span className="text-sm text-ivory"><strong>Supplier Transparency</strong> - We publish sourcing locations & certifications</span>
-                </li>
-              </ul>
-            </div>
+              ))}
+            </ul>
           </div>
         </div>
 
-        {/* Why This Matters */}
-        <div className="mt-12 bg-gold/5 rounded-xl p-8 border border-gold/10">
-          <h3 className="text-h4 text-text-dark mb-4">Why This Matters for Your Brand</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-2">Customer Perception</p>
-              <p className="text-sm text-text-muted">Eco-conscious packaging strengthens brand perception. Customers feel good about their purchase.</p>
+        {/* Benefits */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {benefits.map((benefit, idx) => (
+            <div key={idx} className="bg-white rounded-lg p-6 border border-sand">
+              <h4 className="font-bold text-ink mb-2 text-sm uppercase tracking-wider">{benefit.title}</h4>
+              <p className="text-sm text-text-muted">{benefit.desc}</p>
             </div>
-            <div>
-              <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-2">Social Content</p>
-              <p className="text-sm text-text-muted">Sustainable unboxing is shareable. Customers post about eco-friendly packaging more often than generic.</p>
-            </div>
-            <div>
-              <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-2">No Cost Premium</p>
-              <p className="text-sm text-text-muted">FSC kraft paper costs the same as standard. You gain sustainability benefits without margin impact.</p>
-            </div>
-          </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center">
+          <a href="#contact" className="inline-flex items-center gap-2 bg-gold text-ink font-bold py-3 px-8 rounded-lg hover:bg-gold-light transition-colors">
+            Explore Sustainable Options
+          </a>
         </div>
       </div>
     </section>
