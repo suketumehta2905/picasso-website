@@ -31,28 +31,31 @@ export default function Gallery() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center bg-navy pt-24">
+      <section className="relative min-h-[50vh] flex items-center bg-ink pt-24">
         <div className="content-max mx-auto px-[clamp(20px,5vw,80px)] w-full">
-          <h1 className="text-display-md text-ivory mb-4">Gallery</h1>
-          <p className="text-body-lg text-ivory/60 max-w-xl">
+          <span className="inline-block text-sm font-bold tracking-widest uppercase text-gold bg-gold/10 px-4 py-2 rounded-full mb-4">
+            Gallery
+          </span>
+          <h1 className="text-5xl font-black text-white mb-4">Our Work</h1>
+          <p className="text-lg text-white/70 max-w-xl">
             A showcase of our finest packaging work across industries and formats.
           </p>
         </div>
       </section>
 
       {/* Gallery Grid */}
-      <section className="bg-ivory section-padding">
-        <div className="content-max mx-auto">
+      <section className="bg-stone py-24 px-4 md:px-8">
+        <div className="content-max mx-auto max-w-5xl">
           {/* Filters */}
-          <div className="flex flex-wrap gap-3 mb-10">
+          <div className="flex flex-wrap gap-3 mb-16 justify-center">
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeFilter === filter
-                    ? 'bg-navy text-ivory'
-                    : 'bg-off-white text-text-muted hover:bg-navy/10'
+                    ? 'bg-gold text-ink'
+                    : 'bg-white text-ink hover:bg-gold/10'
                 }`}
               >
                 {filter}
@@ -65,7 +68,7 @@ export default function Gallery() {
             {filteredItems.map((item, i) => (
               <div
                 key={`${item.title}-${i}`}
-                className="gallery-item break-inside-avoid group relative rounded overflow-hidden cursor-pointer"
+                className="gallery-item break-inside-avoid group relative rounded-lg overflow-hidden cursor-pointer"
                 onClick={() => setLightbox(item.image)}
               >
                 <img
@@ -74,11 +77,11 @@ export default function Gallery() {
                   className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/60 transition-colors duration-300 flex items-end">
+                <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/70 transition-colors duration-300 flex items-end">
                   <div className="p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <span className="text-caption text-gold">{item.category}</span>
-                    <h4 className="text-h3 text-ivory mt-1">{item.title}</h4>
-                    <p className="text-sm text-ivory/60 mt-1">{item.client}</p>
+                    <span className="text-sm font-bold text-gold uppercase tracking-wider">{item.category}</span>
+                    <h4 className="text-lg font-bold text-white mt-1">{item.title}</h4>
+                    <p className="text-sm text-white/70 mt-1">{item.client}</p>
                   </div>
                 </div>
               </div>
@@ -90,19 +93,19 @@ export default function Gallery() {
       {/* Lightbox */}
       {lightbox && (
         <div
-          className="fixed inset-0 z-[70] bg-navy/95 flex items-center justify-center p-4"
+          className="fixed inset-0 z-[70] bg-ink/95 flex items-center justify-center p-4"
           onClick={() => setLightbox(null)}
         >
           <button
-            className="absolute top-6 right-6 w-10 h-10 rounded-full bg-ivory/10 flex items-center justify-center hover:bg-ivory/20 transition-colors"
+            className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
             onClick={() => setLightbox(null)}
           >
-            <X className="w-5 h-5 text-ivory" />
+            <X className="w-5 h-5 text-white" />
           </button>
           <img
             src={lightbox}
             alt="Gallery preview"
-            className="max-w-full max-h-[90vh] object-contain rounded"
+            className="max-w-full max-h-[90vh] object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
           />
         </div>
