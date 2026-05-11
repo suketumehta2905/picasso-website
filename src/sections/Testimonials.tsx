@@ -28,20 +28,21 @@ export default function Testimonials() {
   return (
     <section className="bg-navy section-padding">
       <div className="content-max mx-auto" ref={containerRef}>
-        <div className="mb-16 text-center">
-          <h2 className="text-h1 text-ivory mb-4">What Our Partners Say</h2>
+        <div className="mb-12 text-center">
+          <h2 className="text-h1 text-ivory mb-3">What Our Partners Say</h2>
+          <p className="text-body-sm text-ivory/60 mb-6">Real feedback from real D2C brands we've partnered with</p>
           <div className="gold-line mx-auto" />
         </div>
 
         {/* Featured Testimonial */}
         <div className="testimonial-card relative max-w-4xl mx-auto text-center mb-16">
-          <Quote className="w-16 h-16 text-gold/20 mx-auto mb-6" />
-          <blockquote className="text-h2 text-ivory font-medium leading-relaxed mb-8">
+          <Quote className="w-12 h-12 text-gold/20 mx-auto mb-6" />
+          <blockquote className="text-body-lg text-ivory font-medium leading-relaxed mb-6">
             "{testimonials[0].quote}"
           </blockquote>
           <div>
-            <p className="text-caption text-gold">{testimonials[0].name}</p>
-            <p className="text-sm text-ivory/60 mt-1">
+            <p className="text-sm text-gold font-medium">{testimonials[0].name}</p>
+            <p className="text-xs text-ivory/60 mt-1">
               {testimonials[0].title}, {testimonials[0].company}
             </p>
           </div>
