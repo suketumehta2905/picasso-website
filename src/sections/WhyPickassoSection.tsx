@@ -1,65 +1,68 @@
-import { Sparkles, Heart, Package, Lightbulb } from 'lucide-react'
-
 interface Feature {
-  icon: React.ComponentType<any>
   title: string
   description: string
 }
 
 const features: Feature[] = [
   {
-    icon: Heart,
-    title: 'Unboxing Moments Matter',
-    description:
-      'Premium packaging creates memorable unboxing experiences that drive social media content and customer loyalty.',
+    title: 'Unboxing Moments',
+    description: 'Premium packaging creates shareable content & loyalty.',
   },
   {
-    icon: Sparkles,
     title: 'Luxury Finishes',
-    description:
-      'Foil stamping, embossing, spot UV, and custom inserts elevate perceived value and justify premium pricing.',
+    description: 'Foil, embossing, spot UV — justify premium pricing.',
   },
   {
-    icon: Package,
-    title: 'Practical MOQs',
-    description:
-      'Start with 500 units for product launches, testing, and seasonal releases. Scale up as your brand grows.',
+    title: 'Start at 500 Units',
+    description: 'Flexible MOQs for launches & testing.',
   },
   {
-    icon: Lightbulb,
     title: 'Expert Guidance',
-    description:
-      'Our packaging consultants help you choose materials, finishes, and structures that match your brand\'s luxury positioning.',
+    description: 'Packaging consultants from concept to delivery.',
   },
 ]
 
 export default function WhyPickassoSection() {
   return (
-    <section className="bg-navy-light section-padding">
-      <div className="content-max mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-h1 text-ivory mb-4">Why Picasso for D2C Brands?</h2>
-          <p className="text-body-lg text-ivory/60 max-w-2xl mx-auto">
-            We specialize in creating premium packaging that drives brand perception and customer loyalty
-          </p>
-        </div>
+    <section className="bg-stone py-24 px-4 md:px-8">
+      <div className="content-max mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Left Image - Sticky */}
+          <div className="sticky top-24">
+            <img
+              src="/Kimi Images/picasso_website_images/07_why_picasso.jpg"
+              alt="Why Picasso - Premium packaging showcase"
+              className="w-full rounded-xl object-cover shadow-card"
+            />
+          </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon
-            return (
-              <div
-                key={index}
-                className="bg-navy rounded-xl p-8 border border-navy/50 hover:border-gold/30 transition-all duration-300 hover:shadow-lg"
-              >
-                <Icon className="w-12 h-12 text-gold mb-4" />
-                <h3 className="text-h3 text-ivory mb-3">{feature.title}</h3>
-                <p className="text-body text-ivory/70">{feature.description}</p>
-              </div>
-            )
-          })}
+          {/* Right Content */}
+          <div>
+            <span className="inline-block text-sm font-bold tracking-widest uppercase text-gold bg-gold/10 px-4 py-2 rounded-full mb-6">
+              Why Picasso
+            </span>
+
+            <h2 className="text-4xl md:text-5xl font-black text-ink mb-6 leading-tight">
+              Built for Brands That Take Packaging Seriously
+            </h2>
+
+            <p className="text-lg text-text-muted mb-12 leading-relaxed">
+              We don't just manufacture boxes. We engineer unboxing moments that turn one-time buyers into repeat customers and social media advocates.
+            </p>
+
+            {/* Feature Cards */}
+            <div className="space-y-4">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="bg-white border border-sand rounded-lg p-6 hover:shadow-card transition-all"
+                >
+                  <h3 className="font-bold text-ink text-lg mb-2">{feature.title}</h3>
+                  <p className="text-sm text-text-muted">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

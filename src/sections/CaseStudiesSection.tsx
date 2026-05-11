@@ -5,8 +5,7 @@ interface CaseStudy {
   industry: string
   challenge: string
   solution: string
-  result: string
-  metric: string
+  results: string[]
   image: string
 }
 
@@ -14,89 +13,109 @@ const caseStudies: CaseStudy[] = [
   {
     brand: 'Luxe Beauty Co.',
     industry: 'Beauty & Cosmetics',
-    challenge: 'Struggling to differentiate in a crowded beauty market; customers perceived products as generic',
-    solution: 'Custom magnetic closure rigid boxes with gold foil stamping and custom tissue',
-    result: 'Became a TikTok sensation with unboxing videos',
-    metric: '+45% repeat purchase rate in 3 months',
-    image: '/images/industry-cosmetics.jpg',
+    challenge: 'Struggling to stand out in a saturated beauty market. Packaging felt generic and failed to justify the $85 price point.',
+    solution: 'Custom magnetic-closure rigid box with gold foil logo, embossed pattern, and blush-pink tissue with branded sticker seal.',
+    results: [
+      '12K organic unboxing video views in first month',
+      '18% reduction in damage during shipping',
+      'Repeat purchase rate climbed 8 points in 90 days',
+    ],
+    image: '/Kimi Images/picasso_website_images/12_case_study_beauty.jpg',
   },
   {
-    brand: 'Jewelry Collective',
+    brand: 'The Jewelry Collective',
     industry: 'Jewelry & Luxury Goods',
-    challenge: 'Premium positioning not reflected in packaging; needed to justify higher price points',
-    solution: 'Drawer-style rigid boxes with embossing and custom velvet inserts',
-    result: 'Generated 50K+ unboxing video views organically',
-    metric: '60% higher perceived value among customers',
-    image: '/images/industry-jewelry.jpg',
+    challenge: 'Premium jewelry was shipped in generic pouches. Customers couldn\'t justify the price, and return rates were climbing.',
+    solution: 'Drawer-style rigid box with deep navy exterior, silver embossing, and custom velvet insert with ribbon pull.',
+    results: [
+      'Return rate dropped 34%',
+      'Customer NPS increased 22 points',
+      'Box retention rate: 67% (customers kept the box)',
+    ],
+    image: '/Kimi Images/picasso_website_images/13_case_study_jewelry.jpg',
   },
   {
-    brand: 'Gifting Startup',
+    brand: 'GiftBox',
     industry: 'Gifting & Subscriptions',
-    challenge: 'Monthly subscription boxes felt plain despite quality products; low repeat rate',
-    solution: 'Premium rigid boxes with foil stamping, custom tissue, and branded inserts',
-    result: 'Customers shared unboxing experiences on social media',
-    metric: '+75% customer retention in subscription cohort',
-    image: '/images/gallery-5.jpg',
+    challenge: 'Monthly subscription felt disposable. Churn was 28% after month 3.',
+    solution: 'Premium rigid box with seasonal foil designs, custom tissue, and QR-linked unboxing experience.',
+    results: [
+      'Month-3 churn dropped to 11%',
+      '43% of subscribers posted unboxing content',
+      'Average box reuse: 3.2 times',
+    ],
+    image: '/Kimi Images/picasso_website_images/14_case_study_giftbox.jpg',
   },
 ]
 
 export default function CaseStudiesSection() {
   return (
-    <section className="bg-off-white section-padding">
-      <div className="content-max mx-auto">
+    <section className="bg-stone py-24 px-4 md:px-8">
+      <div className="content-max mx-auto max-w-5xl">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-h1 text-text-dark mb-4">D2C Brands That Chose Picasso</h2>
-          <p className="text-body-lg text-text-muted max-w-2xl mx-auto">
-            Real results from real D2C brands investing in premium packaging
+          <span className="inline-block text-sm font-bold tracking-widest uppercase text-gold bg-gold/10 px-4 py-2 rounded-full mb-4">
+            Case Studies
+          </span>
+          <h2 className="text-5xl font-black text-ink mb-4">Real Results from Real Brands</h2>
+          <p className="text-lg text-text-muted max-w-2xl mx-auto">
+            Discover how packaging transformed growth and customer perception for leading D2C brands.
           </p>
-          <div className="gold-line mx-auto mt-8" />
         </div>
 
         {/* Case Studies Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="space-y-8">
           {caseStudies.map((study, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl overflow-hidden border border-text-muted/10 hover:shadow-card transition-all duration-300 group"
+              className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-all"
             >
               {/* Image */}
               <div className="aspect-video overflow-hidden">
                 <img
                   src={study.image}
                   alt={study.brand}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-8 md:p-12">
                 {/* Brand Info */}
-                <h3 className="text-h3 text-text-dark mb-1">{study.brand}</h3>
-                <p className="text-sm font-medium text-gold mb-4">{study.industry}</p>
+                <h3 className="text-2xl font-bold text-ink mb-2">{study.brand}</h3>
+                <p className="text-sm font-semibold text-gold uppercase tracking-wider mb-6">{study.industry}</p>
 
                 {/* Challenge */}
-                <div className="mb-4">
-                  <p className="text-xs uppercase tracking-wider text-text-muted font-semibold mb-2">
-                    Challenge
-                  </p>
-                  <p className="text-sm text-text-muted leading-relaxed">{study.challenge}</p>
+                <div className="mb-8">
+                  <div className="flex items-center gap-3 mb-3">
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-ink">Challenge</h4>
+                    <div className="flex-1 h-0.5 bg-gold" />
+                  </div>
+                  <p className="text-text-muted leading-relaxed">{study.challenge}</p>
                 </div>
 
                 {/* Solution */}
-                <div className="mb-4">
-                  <p className="text-xs uppercase tracking-wider text-gold font-semibold mb-2">
-                    Our Solution
-                  </p>
-                  <p className="text-sm text-text-dark leading-relaxed">{study.solution}</p>
+                <div className="mb-8">
+                  <div className="flex items-center gap-3 mb-3">
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-ink">Solution</h4>
+                    <div className="flex-1 h-0.5 bg-gold" />
+                  </div>
+                  <p className="text-text-muted leading-relaxed">{study.solution}</p>
                 </div>
 
                 {/* Result */}
-                <div className="pt-4 border-t border-text-muted/10">
-                  <p className="text-xs uppercase tracking-wider text-text-muted font-semibold mb-2">
-                    Result
-                  </p>
-                  <p className="text-sm text-text-muted mb-2">{study.result}</p>
-                  <p className="text-h3 text-navy font-bold">{study.metric}</p>
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-ink">Result</h4>
+                    <div className="flex-1 h-0.5 bg-gold" />
+                  </div>
+                  <div className="flex flex-wrap gap-4">
+                    {study.results.map((result, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <span className="text-gold font-bold">•</span>
+                        <span className="text-text-muted text-sm">{result}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -105,10 +124,10 @@ export default function CaseStudiesSection() {
 
         {/* CTA */}
         <div className="mt-16 text-center">
-          <button className="inline-flex items-center gap-2 text-gold hover:text-gold-dim font-semibold transition-colors group">
-            Read Full Case Studies
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          <a href="#case-studies" className="inline-flex items-center gap-2 bg-gold text-ink font-bold py-3 px-8 rounded-lg hover:bg-gold-light transition-colors">
+            View All Case Studies
+            <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
       </div>
     </section>
