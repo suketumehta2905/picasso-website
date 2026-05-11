@@ -1,182 +1,220 @@
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 interface Product {
+  id: string
   title: string
-  tagline: string
+  subtitle: string
   description: string
-  bestFor: string[]
-  features: string[]
-  primaryCTA: string
-  secondaryCTA: string
-  isHero?: boolean
+  image: string
+  structures: string[]
+  finishes: string[]
+  moq: string
+  leadTime: string
+  customSizes: boolean
+  category: 'all' | 'rigid' | 'bags' | 'inserts' | 'sustainable'
 }
 
 const products: Product[] = [
   {
-    title: 'Luxury Rigid Boxes',
-    tagline: '⭐ Hero Product',
-    description: 'Premium boxes for gifting, retail, jewelry, cosmetics and corporate hampers. Create a stronger first impression with rigid boxes designed for premium presentation, protection and brand recall.',
-    bestFor: ['Jewelry', 'Perfumes', 'Beauty products', 'Luxury gifts', 'Electronics', 'Dry fruits', 'Corporate hampers'],
-    features: [
-      'Magnetic closure, drawer-style, lid-and-base and collapsible boxes',
-      'Custom inserts for bottles, jars, jewelry, electronics and gift sets',
-      'Premium finishes like foil stamping, embossing, debossing and spot UV',
-      'Strong board construction for a luxury unboxing experience'
-    ],
-    primaryCTA: 'Explore Rigid Boxes',
-    secondaryCTA: 'Request Sample',
-    isHero: true,
+    id: 'rigid',
+    title: 'Premium Rigid Boxes',
+    subtitle: 'Magnetic closures, foil, embossing',
+    image: '/Kimi Images/picasso_website_images/03_products_rigid.jpg',
+    description: 'Our flagship product. Rigid boxes with magnetic closures, custom inserts, and premium finishes that turn unboxing into a brand moment.',
+    structures: ['Magnetic closure', 'Drawer-style', 'Book-style', 'Custom shapes', 'Lid & base'],
+    finishes: ['Gold foil stamping', 'Silver foil stamping', 'Copper foil stamping', 'Embossing / Debossing', 'Spot UV glossy', 'Matte lamination', 'Soft-touch coating'],
+    moq: '500 units',
+    leadTime: '4-6 weeks',
+    customSizes: true,
+    category: 'all' || 'rigid',
   },
   {
-    title: 'Custom Paper Bags',
-    tagline: 'Branded Carry Bags',
-    description: 'Branded carry bags for retail, gifting, events, QSR and premium stores. Turn every customer carryout into a moving brand impression.',
-    bestFor: ['Retail stores', 'Boutiques', 'Restaurants', 'Bakeries', 'Events', 'Exhibitions', 'Corporate gifting'],
-    features: [
-      'V-bottom, square-bottom, SOS, rope-handle and twisted-handle bags',
-      'Kraft, art paper, duplex and laminated options',
-      'Custom size, logo printing and premium handle options',
-      'Recyclable and food-grade options available'
-    ],
-    primaryCTA: 'Explore Paper Bags',
-    secondaryCTA: 'Get Bag Recommendation',
+    id: 'bags',
+    title: 'Branded Paper Bags',
+    subtitle: 'Twisted, rope & flat handles',
+    image: '/Kimi Images/picasso_website_images/04_products_bags.jpg',
+    description: 'Branded carry bags for retail, gifting, events, and premium stores. Turn every customer carryout into a moving brand impression.',
+    structures: ['V-bottom', 'Square-bottom', 'SOS', 'Rope-handle', 'Twisted-handle'],
+    finishes: ['Kraft paper', 'Art paper', 'Recycled', 'FSC-certified', 'Custom printing'],
+    moq: '1,000 units',
+    leadTime: '3-5 weeks',
+    customSizes: true,
+    category: 'all' || 'bags',
   },
   {
-    title: 'Finishes, Inserts & Enhancements',
-    tagline: 'Perceived Value Add',
-    description: 'Add perceived value through finishing, structure and presentation details. Small packaging details can make your product feel more premium and gift-worthy.',
-    bestFor: ['Luxury packaging', 'Festive gifting', 'Product launches', 'Influencer kits', 'Retail display packaging'],
-    features: [
-      'Gold, silver, copper and holographic foil stamping',
-      'Embossing, debossing, spot UV and soft-touch lamination',
-      'Custom inserts, sleeves, ribbons, tissue paper and belly bands',
-      'Structural prototyping to test fit, opening feel and presentation'
-    ],
-    primaryCTA: 'View Finish Options',
-    secondaryCTA: 'Talk to Expert',
+    id: 'inserts',
+    title: 'Custom Inserts',
+    subtitle: 'Foam, velvet, molded pulp',
+    image: '/Kimi Images/picasso_website_images/05_products_inserts.jpg',
+    description: 'Add perceived value through finishing, structure and presentation details. Small packaging details make your product feel more premium and gift-worthy.',
+    structures: ['EVA foam', 'Velvet', 'Molded pulp', 'Cardboard dividers', 'Die-cut cavities'],
+    finishes: ['Ribbon pulls', 'Magnetic holders', 'Custom embossing', 'Dye options', 'Texture finishes'],
+    moq: '500 units',
+    leadTime: '4-6 weeks',
+    customSizes: true,
+    category: 'all' || 'inserts',
+  },
+  {
+    id: 'sustainable',
+    title: 'Sustainable Options',
+    subtitle: 'FSC-certified, recycled, bio',
+    image: '/Kimi Images/picasso_website_images/06_products_sustainable.jpg',
+    description: 'Eco-friendly packaging options that maintain quality and cost competitiveness. Same price as standard, 100% certified & audited.',
+    structures: ['FSC Certified Paper', 'Recycled Content 30-80%', 'Biodegradable', 'Plastic-free', 'Soy-based inks'],
+    finishes: ['Water-based inks', 'Eco-coating', 'Natural dyes', 'Minimal processing', 'Compostable'],
+    moq: '500 units',
+    leadTime: '4-6 weeks',
+    customSizes: true,
+    category: 'all' || 'sustainable',
   },
 ]
 
+const filterOptions: { label: string; value: 'all' | 'rigid' | 'bags' | 'inserts' | 'sustainable' }[] = [
+  { label: 'All', value: 'all' },
+  { label: 'Rigid Boxes', value: 'rigid' },
+  { label: 'Paper Bags', value: 'bags' },
+  { label: 'Inserts', value: 'inserts' },
+  { label: 'Sustainable', value: 'sustainable' },
+]
+
 export default function ProductShowcaseSection() {
+  const [expandedId, setExpandedId] = useState<string | null>(null)
+  const [activeFilter, setActiveFilter] = useState<'all' | 'rigid' | 'bags' | 'inserts' | 'sustainable'>('all')
+
+  const filteredProducts = activeFilter === 'all'
+    ? products
+    : products.filter(p => p.id === activeFilter)
+
+  const toggleExpand = (id: string) => {
+    setExpandedId(expandedId === id ? null : id)
+  }
+
   return (
-    <section className="bg-ivory section-padding">
-      <div className="content-max mx-auto">
+    <section className="bg-white py-24 px-4 md:px-8">
+      <div className="content-max mx-auto max-w-5xl">
         {/* Section Header */}
-        <div className="mb-16">
-          <h2 className="text-h1 text-text-dark mb-4">Our Packaging Solutions</h2>
-          <p className="text-body text-text-muted max-w-3xl">
-            Premium packaging built for brands that want to be remembered. From luxury rigid boxes to custom paper bags and finishing enhancements, Picasso Print & Pack helps brands create packaging that looks premium, feels reliable, and supports real-world retail, gifting, and delivery needs.
+        <div className="text-center mb-16">
+          <span className="inline-block text-sm font-bold tracking-widest uppercase text-gold bg-gold/10 px-4 py-2 rounded-full mb-4">
+            Our Products
+          </span>
+          <h2 className="text-5xl font-bold text-ink mb-4">Everything You Need to Create Unforgettable Unboxing</h2>
+          <p className="text-lg text-text-muted max-w-2xl mx-auto">
+            From rigid boxes to sustainable alternatives — find the perfect format for your product and budget.
           </p>
-          <div className="gold-line mt-8" />
         </div>
 
-        {/* Products Grid - Asymmetrical Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {/* Hero Product - Large Left Side */}
-          <div className="lg:col-span-2 lg:row-span-2">
-            <div className="bg-gradient-to-br from-gold/10 to-gold/5 border-2 border-gold/30 rounded-xl p-10 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-              <span className="text-xs font-bold text-gold bg-gold/10 px-4 py-2 rounded-full inline-block mb-6 w-fit">
-                {products[0].tagline}
-              </span>
+        {/* Filter Pills */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {filterOptions.map((option) => (
+            <button
+              key={option.value}
+              onClick={() => setActiveFilter(option.value)}
+              className={`px-6 py-2 rounded-full font-medium transition-all ${
+                activeFilter === option.value
+                  ? 'bg-gold text-ink'
+                  : 'bg-stone text-ink hover:bg-sand'
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
 
-              <h3 className="text-h2 text-text-dark mb-3">{products[0].title}</h3>
-              <p className="text-sm text-text-muted mb-6 leading-relaxed">{products[0].description}</p>
-
-              <div className="mb-8">
-                <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-3">Best For:</p>
-                <div className="flex flex-wrap gap-2">
-                  {products[0].bestFor.map((item, idx) => (
-                    <span key={idx} className="text-xs bg-gold/10 text-text-dark px-3 py-1 rounded-full">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mb-8 flex-1">
-                <ul className="space-y-3">
-                  {products[0].features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-text-muted">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="flex gap-4">
-                <Link to="/contact" className="btn-primary text-sm px-6 py-2">
-                  {products[0].primaryCTA}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <button className="border-2 border-gold text-gold text-sm font-semibold px-6 py-2 rounded-lg hover:bg-gold/5 transition-colors">
-                  {products[0].secondaryCTA}
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Stacked Cards - Right Side */}
-          <div className="lg:col-span-1 flex flex-col gap-8">
-            {products.slice(1).map((product, idx) => (
-              <div
-                key={idx}
-                className="bg-off-white border border-text-muted/10 rounded-xl p-6 hover:shadow-card transition-all duration-300 flex flex-col"
+        {/* Product Cards */}
+        <div className="space-y-4">
+          {filteredProducts.map((product) => (
+            <div
+              key={product.id}
+              className="border border-sand rounded-xl overflow-hidden bg-white hover:shadow-card transition-shadow"
+            >
+              {/* Collapsed Header */}
+              <button
+                onClick={() => toggleExpand(product.id)}
+                className="w-full flex items-center gap-4 p-6 hover:bg-stone transition-colors text-left"
               >
-                <span className="text-xs font-semibold text-gold uppercase tracking-wider mb-3">
-                  {product.tagline}
-                </span>
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-12 h-12 rounded object-cover flex-shrink-0"
+                />
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-ink">{product.title}</h3>
+                  <p className="text-sm text-text-muted">{product.subtitle}</p>
+                </div>
+                <ChevronDown
+                  className={`w-5 h-5 text-gold flex-shrink-0 transition-transform ${
+                    expandedId === product.id ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
 
-                <h3 className="text-h4 text-text-dark mb-2">{product.title}</h3>
-                <p className="text-xs text-text-muted mb-4 leading-relaxed">{product.description}</p>
+              {/* Expanded Content */}
+              {expandedId === product.id && (
+                <div className="px-6 pb-6 border-t border-sand bg-stone/50">
+                  <p className="text-text-muted mb-8">{product.description}</p>
 
-                <div className="mb-4">
-                  <p className="text-xs font-semibold text-gold uppercase mb-2">Best For:</p>
-                  <div className="flex flex-wrap gap-1">
-                    {product.bestFor.slice(0, 3).map((item, i) => (
-                      <span key={i} className="text-xs bg-off-white text-text-dark px-2 py-0.5 rounded border border-text-muted/10">
-                        {item}
-                      </span>
-                    ))}
+                  <div className="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                      <h4 className="font-bold text-ink text-sm uppercase tracking-wider mb-4">Structure Options</h4>
+                      <ul className="space-y-2">
+                        {product.structures.map((item, idx) => (
+                          <li key={idx} className="text-sm text-text-muted flex items-start gap-3">
+                            <span className="text-gold font-bold flex-shrink-0">✓</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-ink text-sm uppercase tracking-wider mb-4">Finish Options</h4>
+                      <ul className="space-y-2">
+                        {product.finishes.map((item, idx) => (
+                          <li key={idx} className="text-sm text-text-muted flex items-start gap-3">
+                            <span className="text-gold font-bold flex-shrink-0">✓</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-white rounded-lg p-6 mb-8 border border-sand">
+                    <h4 className="font-bold text-ink text-sm uppercase tracking-wider mb-4">Specifications</h4>
+                    <div className="grid md:grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <span className="text-gold font-bold">MOQ:</span> {product.moq}
+                      </div>
+                      <div>
+                        <span className="text-gold font-bold">Lead Time:</span> {product.leadTime}
+                      </div>
+                      <div className="md:col-span-2">
+                        <span className="text-gold font-bold">Custom Sizes:</span> {product.customSizes ? 'Yes' : 'No'}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <button className="flex-1 px-6 py-3 bg-gold text-ink font-bold rounded-lg hover:bg-gold-light transition-colors">
+                      Request a Sample
+                    </button>
+                    <Link to="/contact" className="flex-1 px-6 py-3 border-2 border-gold text-gold font-bold rounded-lg hover:bg-gold/10 transition-colors text-center">
+                      Get a Quote
+                    </Link>
                   </div>
                 </div>
-
-                <div className="mb-4 flex-1">
-                  <ul className="space-y-2">
-                    {product.features.slice(0, 2).map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-gold text-lg leading-none flex-shrink-0">✓</span>
-                        <span className="text-xs text-text-muted">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <Link to="/contact" className="btn-primary text-xs px-4 py-1.5 text-center">
-                    {product.primaryCTA}
-                  </Link>
-                  <button className="border border-gold text-gold text-xs font-semibold px-4 py-1.5 rounded hover:bg-gold/5 transition-colors">
-                    {product.secondaryCTA}
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+              )}
+            </div>
+          ))}
         </div>
 
-        {/* Trust Strip */}
-        <div className="bg-navy rounded-lg p-8 text-center border border-gold/20">
-          <h4 className="text-h4 text-ivory mb-4">From Concept to Final Delivery</h4>
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-ivory/80">
-            <div>📐 Custom Size Guidance</div>
-            <div>📋 Material Selection</div>
-            <div>✨ Finish Recommendation</div>
-            <div>🎁 Sampling</div>
-            <div>📦 Bulk Production</div>
-            <div>🚚 Pan-India Delivery</div>
-          </div>
+        {/* Footer CTA */}
+        <div className="text-center mt-16">
+          <Link to="/products" className="inline-flex items-center gap-2 bg-gold text-ink font-bold py-3 px-8 rounded-lg hover:bg-gold-light transition-colors">
+            Explore All Products
+            <ChevronDown className="w-4 h-4 rotate-180" />
+          </Link>
         </div>
       </div>
     </section>

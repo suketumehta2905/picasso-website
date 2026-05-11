@@ -38,7 +38,19 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Picasso Custom Colors
+        // Picasso Design System Colors
+        ink: '#0F0F0F',
+        charcoal: '#1A1A1A',
+        stone: '#F5F3EF',
+        sand: '#E8E4DE',
+        gold: {
+          DEFAULT: '#C9A96E',
+          light: '#D4B87A',
+        },
+        terracotta: '#B85C38',
+        success: '#2D6A4F',
+
+        // Legacy colors (keeping for compatibility)
         navy: {
           DEFAULT: '#0F172A',
           light: '#1E293B',
@@ -48,18 +60,12 @@ module.exports = {
           DEFAULT: '#FAF7F0',
           dim: '#E8E2D9',
         },
-        gold: {
-          DEFAULT: '#C9A24D',
-          dim: '#A0823D',
-          light: '#D4B57A',
-        },
         kraft: {
           DEFAULT: '#D8B98C',
           light: '#E5D4B8',
         },
         'text-dark': '#111827',
         'text-muted': '#64748B',
-        success: '#0E9F6E',
         'off-white': '#F8F6F1',
       },
       fontFamily: {

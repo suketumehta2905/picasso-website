@@ -12,6 +12,7 @@ import Contact from './pages/Contact'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ChatWidget from './components/ChatWidget'
+import WhatsAppButton from './components/WhatsAppButton'
 import ScrollProgress from './components/ScrollProgress'
 import Finishes from './pages/Finishes'
 
@@ -37,6 +38,7 @@ export default function App() {
       </main>
       <Footer />
       <ChatWidget />
+      <WhatsAppButton />
     </div>
   )
 }
